@@ -9,20 +9,24 @@ body {
 }
 
 header {
+    display: flex;
+    position: relative;
     height: 5.7vh;
     width: 100vw;
 }
 
 nav {
-    position: relative;
     display: flex;
     height: 100%;
     width: 100%;
 }
 
-header>nav>a {
-    display: flex;
+a {
     text-decoration: none;
+}
+
+header>a {
+    display: flex;
     position: absolute;
     align-items: center;
     height: 100%;
@@ -48,7 +52,9 @@ header>nav>ul>li {
 
 a {
     font-family: Poppins-Bold;
+    font-size: 2vh;
 }
+
 header>nav>ul>li>a {
     color: #0E0E0E;
     text-decoration: none;
@@ -58,29 +64,63 @@ header>nav>ul>li:nth-child(4) {
     padding-right: 0;
 }
 
-header>nav>a>img {
+header>a>img {
     height: 75%;
 }
 
-
-main{
+main {
     position: relative;
 }
 
-.apresentacao{
-    position: absolute;
+.apresentacao {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: aqua;
     height: 30vh;
     width: 100%;
     justify-items: center;
+    background-image: url("../img/background-hero.png");
 }
 
-.apresentacao > article{
+.apresentacao>article {
     position: fixed;
     right: 2vw;
-    top: 20vh;
+    top: 28vh;
 }
 
+.depoimentos {
+    display: flex;
+}
+
+.apresentacao>h1 {
+    position: absolute;
+    top: 28%;
+}
+
+.apresentacao>p {
+    position: absolute;
+    top: 40%;
+}
+
+.apresentacao>a {
+    display: flex;
+    color: #FBFBFB;
+    position: absolute;
+    padding-left: 3vh;
+    padding-right: 3vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    justify-content: center;
+    align-items: center;
+    width: 23.4vw;
+    height: 4vh;
+    background-color: #0E0E0E;
+    bottom: 20%;
+    border-radius: 0.5em;
+}
+
+.apresentacao>article>a>img {
+    height: 40px;
+    width: 40px;
+}
