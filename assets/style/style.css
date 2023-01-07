@@ -3,133 +3,53 @@
     margin: 0;
 }
 
+li {
+    /* Removendo o marcador "ponto" na frente do li */
+    list-style-type: none;
+}
+
+a {
+    /* Removendo o subilinhado do link */
+    text-decoration: none;
+    /* Removendo a cor azul da fonte */
+    color: inherit;
+}
+
 body {
     height: 100%;
     width: 100%;
 }
 
 header {
-    display: flex;
-    position: relative;
-    height: 5.7vh;
+    background-color: aquamarine;
+    height: 9.5vh;
     width: 100vw;
 }
 
 nav {
-    display: flex;
-    height: 100%;
-    width: 100%;
-}
-
-a {
-    text-decoration: none;
-}
-
-header>a {
-    display: flex;
-    position: absolute;
-    align-items: center;
-    height: 100%;
-    left: 10vw;
-}
-
-ul {
     height: 100%;
     display: flex;
-    position: absolute;
-    right: 10vw;
+    justify-content: space-around;
     align-items: center;
+    gap: 37vw;
 }
 
-header>nav>ul>li {
-    list-style-type: none;
-}
-
-header>nav>ul>li {
-    text-decoration: none;
-    padding: 2vw;
-}
-
-a {
-    font-family: Poppins-Bold;
-    font-size: 2vh;
-}
-
-header>nav>ul>li>a {
-    color: #0E0E0E;
-    text-decoration: none;
-}
-
-header>nav>ul>li:nth-child(4) {
-    padding-right: 0;
-}
-
-header>a>img {
-    height: 75%;
-}
-
-main {
-    position: relative;
-}
-
-.apresentacao {
-    position: relative;
+.link-logo-labescola {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 30vh;
-    width: 100%;
-    justify-items: center;
-    background-image: url("../img/background-hero.png");
+    background-color: lightslategray;
 }
 
-.apresentacao>article {
-    position: fixed;
-    right: 2vw;
-    top: 28vh;
+.logo-labescola {
+    height: 1.75rem;
+    width: 8rem;
 }
 
-.apresentacao>h1 {
-    position: absolute;
-    top: 28%;
-}
-
-.apresentacao>p {
-    position: absolute;
-    top: 40%;
-}
-
-.apresentacao>a {
+.menu-header {
     display: flex;
-    color: #FBFBFB;
-    position: absolute;
-    padding-left: 3vh;
-    padding-right: 3vh;
-    padding-top: 1vh;
-    padding-bottom: 1vh;
-    justify-content: center;
-    align-items: center;
-    width: 23.4vw;
-    height: 4vh;
-    background-color: #0E0E0E;
-    bottom: 20%;
-    border-radius: 0.5em;
+    gap: 5vw;
 }
 
-.apresentacao>article>a>img {
-    height: 40px;
-    width: 40px;
-}
-
-.depoimentos {
-    background-color: #0E0E0E;
-    height: 43.62%;
-    width: 100%;
-    color: #FBFBFB;
-    display: flex;
-    flex-direction: column;
-}
-
-.cards {
-    display: flex;
+.menu-header>li>a {
+    font-family: 'Poppins-Bold', sans-serif;
+    font-size: 0.8em;
 }
