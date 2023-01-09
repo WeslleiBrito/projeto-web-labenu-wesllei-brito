@@ -54,13 +54,13 @@ nav {
 
 .logo-suspnso-whatsapp {
     position: fixed;
-    top: 43%;
+    top: 44%;
     right: 2%;
     display: flex;
 }
 
 .logo-suspnso-whatsapp>a>img {
-    width: 2.3em;
+    width: 2em;
 }
 
 .container-parte-1 {
@@ -77,8 +77,8 @@ nav {
 .container-parte-1>div:nth-child(1) {
     display: flex;
     flex-direction: column;
-    height: 17.52vh;
     justify-content: flex-end;
+    margin-top: 10vh;
 }
 
 .container-parte-1>div:nth-child(2) {
@@ -92,3 +92,18 @@ nav {
     border-radius: 0.3rem;
 }
 
+.container-parte-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#sobre-nos>h5 {
+    margin-top: 2%;
+    font-size: 1em;
+}
+
+#sobre-nos>p {
+    margin-top: 1%;
+}
