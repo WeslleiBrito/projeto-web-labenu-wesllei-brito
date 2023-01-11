@@ -22,7 +22,7 @@ body {
 
 header {
     height: 8.55vh;
-    width: 100vw;
+    width: 100%;
 }
 
 nav {
@@ -93,17 +93,57 @@ nav {
 }
 
 .container-parte-2 {
+    height: 75vh;
+    gap: 12vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    color: #FBFBFB;
+    background-color: #0E0E0E;
+}
+
+.container-parte-2>div>h5 {
+    font-size: 1em;
 }
 
 #sobre-nos>h5 {
     margin-top: 2%;
-    font-size: 1em;
 }
 
 #sobre-nos>p {
     margin-top: 1%;
+    text-align: justify;
+    width: 40vw;
+    font-size: 0.9em;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 12vw);
+    grid-template-rows: 33.37vh;
+    column-gap: 0.7em;
+    justify-content: center;
+    padding-top: 1em;
+    color: #0E0E0E;
+}
+
+.cards>article {
+    background-color: #FBFBFB;
+    padding: 0.5em;
+    border-radius: 0.2em;
+}
+
+#sobre-nos>article>figure {
+    border: 0.05em solid #F6C34A;
+}
+
+.cards>article>figure>img {
+    width: 2.5em;
+}
+
+.cards>article>p {
+    font-size: 0.8768rem;
+    margin-top: 1.3em;
+    text-align: justify;
 }
