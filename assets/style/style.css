@@ -159,12 +159,14 @@ footer {
 
 .logo-labescola-footer {
     width: 7vw;
+    margin-top: 2vh;
 }
 
 .container-footer {
     display: flex;
     justify-content: space-around;
     gap: 8vw;
+    margin-top: 2vh;
 }
 
 .menu-redes-sociais {
@@ -176,3 +178,8 @@ footer {
 .menu-redes-sociais>li>a>img {
     width: 1.5vw;
 }
+
+div > h6{
+    margin-bottom: 2vh;
+}
+
