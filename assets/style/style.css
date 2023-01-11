@@ -147,3 +147,32 @@ nav {
     margin-top: 1.3em;
     text-align: justify;
 }
+
+footer {
+    height: 40vh;
+    background-color: #F6C34A;
+    display: flex;
+    align-content: space-around;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.logo-labescola-footer {
+    width: 7vw;
+}
+
+.container-footer {
+    display: flex;
+    justify-content: space-around;
+    gap: 8vw;
+}
+
+.menu-redes-sociais {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.9vw;
+}
+
+.menu-redes-sociais>li>a>img {
+    width: 1.5vw;
+}
