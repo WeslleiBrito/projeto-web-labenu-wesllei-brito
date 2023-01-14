@@ -148,38 +148,70 @@ nav {
     text-align: justify;
 }
 
-footer {
-    height: 40vh;
+footer{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+    justify-items: center;
+    row-gap: 3vh;
     background-color: #F6C34A;
-    display: flex;
-    align-content: space-around;
-    flex-direction: column;
-    flex-wrap: wrap;
 }
 
-.logo-labescola-footer {
+footer > figure{
+    margin-top: 2vh;
+    grid-row: 1/2;
+    grid-column: 1/2;
+    width: 80%;
+}
+
+.logo-labescola-footer{
     width: 7vw;
-    margin-top: 2vh;
 }
 
-.container-footer {
-    display: flex;
-    justify-content: space-around;
-    gap: 8vw;
-    margin-top: 2vh;
-}
-
-.menu-redes-sociais {
+.container-footer{
+    grid-template-columns: 1/2;
+    grid-row: 2/3;
+    width: 80%;
+    height: 95%;
     display: flex;
     justify-content: space-between;
-    gap: 0.9vw;
 }
 
-.menu-redes-sociais>li>a>img {
+.container-footer > div > h4{
+    margin-bottom: 2vh;
+}
+
+.mapa{
+    width: 90%;
+    height: 65%;
+    border: 1px solid #0E0E0E;
+    margin-bottom: 0.15rem;
+}
+
+.endereco > p{
+    font-size: 0.7em;
+
+}
+
+.menu-links{
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    font-size: 0.8em;
+}
+
+.menu-redes-sociais{
+    display: flex;
+    gap: 0.45rem;
+}
+
+.menu-redes-sociais > li > a > img{
     width: 1.5vw;
 }
-
-div > h6{
-    margin-bottom: 2vh;
+.menu-area-restrita{
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    font-size: 0.8em;
 }
 
