@@ -1,20 +1,98 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Contato</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./assets/styles/style_contato.css">
+    <title>Contato</title>
 </head>
+
 <body>
-	<header>
-		<img src="">
-		<nav></nav>
-	</header>
 
-	<main>
-		<section></section>
-	</main>
+    <header>
+        <nav>
+            <a href="./index.html" class="link-logo-labescola">
+                <img src="./assets/img/logo-lab-escola.png" alt="Logo da labescola" class="logo-labescola" />
+            </a>
 
-	<footer></footer>
+            <ul class="menu-header">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./cursos.html">Cursos</a></li>
+                <li><a href="./contato.html">Contato</a></li>
+                <li><a href="./area-adm.html">Área ADM</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <form action="#" class="contato">
+            <h4>Fale conosco</h4>
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+            <label for="mensagem">Mensagem</label>
+            <input type="textarea" name="mensagem" id="mensagem">
+            <input type="button" value="Enviar" id="enviar">
+        </form>
+    </main>
+
+    <footer>
+        <figure>
+            <a href="./index.html"></a>
+            <img src="./assets/img/logo-labescola-footer.svg" alt="logo da labescola" class="logo-labescola-footer" />
+        </figure>
+
+        <div class="container-footer">
+            <div class="endereco">
+                <h4>Endereço</h4>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.9962768688824!2d-46.6985022!3d-23.5685772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce57a7c7ace4c3%3A0x586759cab9b5c95a!2sR.%20Pais%20Leme%2C%20215%20-%20Pinheiros%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2005424-150!5e0!3m2!1spt-BR!2sbr!4v1673463808402!5m2!1spt-BR!2sbr"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="mapa"></iframe>
+                <p>R. Pais Leme, 215. CEP 05424-150 - Pinheiros</p>
+            </div>
+
+            <div class="links">
+                <h4>Links</h4>
+                <ul class="menu-links">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./cursos.html">Cursos</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Fale Conosco</a></li>
+                    <li><a href="#">Termos e condições</a></li>
+                    <li><a href="#">Política e privacidade</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="redes-sociais">
+                <h4>Redes sociais</h4>
+                <ul class="menu-redes-sociais">
+                    <li>
+                        <a href="#"><img src="./assets/img/icon-twitter 1.svg" alt="icone para nosso canal no twitter" /></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="./assets/img/icon-linkedin 1.svg" alt="icone para nosso canal no linkedin" /></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="./assets/img/icon-fb 1.svg" alt="icone para nosso canal no facebook" /></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="./assets/img/icon-ig 1.svg" alt="icone para nosso canal no instagram" /></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="area-restrita">
+                <h4>Área restrita</h4>
+                <ul class="menu-area-restrita">
+                    <li><a href="#">Área administrativa</a></li>
+                    <li><a href="#">Espaço do aluno</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 </body>
+
 </html>
