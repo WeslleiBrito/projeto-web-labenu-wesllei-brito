@@ -1,57 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    list-style-type: none;
-    box-sizing: border-box;
-    color: inherit;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-}
-
 body {
     width: 100vw;
     height: 160vh;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 8.56vh 109.20vh 42.24vh;
-}
-
-header {
-    height: 8.56vh;
-    grid-column: 1/2;
-    grid-row: 1/2;
-}
-
-header>nav {
-    height: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 1rem;
-    gap: 30vw;
-}
-
-header>nav>a {
-    display: flex;
-}
-
-.logo-labescola {
-    height: 1.5rem;
-    align-self: center;
-}
-
-header>nav>ul {
-    display: flex;
-    gap: 2.5vw;
-}
-
-.menu-header {
-    font-size: 0.8em;
 }
 
 main {
@@ -68,7 +20,6 @@ main {
     flex-direction: column;
     align-items: center;
     background-color: #F6C34A;
-
 }
 
 .cards {
@@ -85,13 +36,11 @@ main {
     align-items: center;
     border-radius: 0.3em;
     margin-top: 6vh;
-
 }
 
 .cards>div>h4 {
     margin-top: 2vh;
     margin-bottom: 3vh;
-    
 }
 
 .cards>div>p {
@@ -99,7 +48,6 @@ main {
     margin: 0 0.9vw 0.9vw 0.9vw;
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
-
 }
 
 .container-parte-1>a {
@@ -108,7 +56,6 @@ main {
     padding: 0.8vh 8vw;
     background-color: #0E0E0E;
     border-radius: 0.3em;
-
 }
 
 .logo-suspnso-whatsapp {
@@ -129,10 +76,9 @@ main {
     align-items: center;
     justify-content: center;
     gap: 2vh;
-
 }
 
-.curso{
+.curso {
     height: 13.86vh;
     width: 39vw;
     background-color: #fbfbfb;
@@ -142,87 +88,16 @@ main {
     align-items: center;
 }
 
-.curso > h4{
+.curso>h4 {
     display: flex;
     align-items: center;
     margin-left: 2vw;
 }
 
-.modulo > h6{
+.modulo>h6 {
     margin-bottom: 1vh;
 }
-.conteudo-modulo > li{
+
+.conteudo-modulo>li {
     font-size: 0.4em;
-}
-footer{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr auto;
-    justify-items: center;
-    row-gap: 1vh;
-    background-color: #F6C34A;
-}
-
-footer > figure{
-
-    grid-row: 1/2;
-    grid-column: 1/2;
-    width: 80%;
-    height: 6vh;
-    align-self: flex-end;
-}
-
-.logo-labescola-footer{
-    width: 7vw;
-}
-
-.container-footer{
-    grid-template-columns: 1/2;
-    grid-row: 2/3;
-    width: 80%;
-    height: 95%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.container-footer > div > h6{
-    margin-bottom: 1vh;
-}
-
-.mapa{
-    width: 80%;
-    height: 75%;
-    border: 1px solid #0E0E0E;
-    margin-bottom: 0.15rem;
-}
-
-.endereco > p{
-    font-size: 0.5em;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
-
-}
-
-.menu-links{
-    display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
-    font-size: 0.5em;
-    font-weight: 400;
-}
-
-.menu-redes-sociais{
-    display: flex;
-    gap: 0.45rem;
-}
-
-.menu-redes-sociais > li > a > img{
-    width: 1.5vw;
-}
-.menu-area-restrita{
-    display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
-    font-size: 0.5em;
-    font-weight: 400;
 }
