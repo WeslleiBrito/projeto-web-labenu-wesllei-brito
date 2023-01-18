@@ -80,7 +80,6 @@ const turmas = [{
 ]
 
 function criarListaCurso() {
-    titulos = ['Curso', 'Início', 'Término', 'Número de alunos', 'Período', 'Concluído']
     let cards = document.querySelector('.cards')
 
     console.log(cards)
@@ -93,28 +92,22 @@ function criarListaCurso() {
         let listaUl = document.createElement('ul')
 
         let curso = document.createElement('li')
-        curso.innerHTML = '<span class="titulo">Curso: '
-        curso.innerHTML += `${dicionario.curso}`
+        curso.innerHTML = `<span class="titulo">Curso: </span>${dicionario.curso}`
 
         let inicio = document.createElement('li')
-        inicio.innerHTML = '<span class="titulo">Início: '
-        inicio.innerHTML += `${dicionario.inicio}`
+        inicio.innerHTML = `<span class="titulo">Início: </span>${dicionario.inicio}`
 
         let termino = document.createElement('li')
-        termino.innerHTML = '<span class="titulo">Término: '
-        termino.innerHTML += `${dicionario.termino}`
+        termino.innerHTML = `<span class="titulo">Término: </span>${dicionario.termino}`
 
         let numeroDeAlunos = document.createElement('li')
-        numeroDeAlunos.innerHTML = '<span class="titulo">Número de alunos: '
-        numeroDeAlunos.innerHTML += `${dicionario.numeroDeAlunos}`
+        numeroDeAlunos.innerHTML = `<span class="titulo">Número de alunos: </span>${dicionario.numeroDeAlunos}`
 
         let periodo = document.createElement('li')
-        periodo.innerHTML = '<span class="titulo">Período: '
-        periodo.innerHTML += `${dicionario.termino}`
-
+        periodo.innerHTML = `<span class="titulo">Período: </span>${dicionario.periodo}`
+        
         let concluido = document.createElement('li')
-        concluido.innerHTML = '<span class="titulo">Período: '
-        concluido.innerHTML += `${dicionario.concluido ? 'Sim' : 'Não'}`
+        concluido.innerHTML = `<span class="titulo">Concluido: </span>${dicionario.concluido ? 'Sim' : 'Não'}`
 
         listaUl.appendChild(curso)
         listaUl.appendChild(inicio)
