@@ -1,46 +1,132 @@
-turmas = {
-    turma: 'Hipátia',
-    curso: 'JavaScript',
-    inicio: '30/11/2022',
-    termino: '30/01/2023',
-    numeroDeAlunos: 150,
-    periodo: 'Noturno',
-    concluido: false
-}
+const turmas = [{
+        turma: 'Hipátia',
+        curso: 'JavaScript',
+        inicio: '30/11/2022',
+        termino: '30/01/2023',
+        numeroDeAlunos: 150,
+        periodo: 'Noturno',
+        concluido: false
+    },
 
-const ul = Object.assign(document.createElement('ul'), {
-    id: 'turma'
-})
+    {
+        turma: 'Sibyla',
+        curso: 'JavaScript',
+        inicio: '30/10/2022',
+        termino: '30/12/2022',
+        numeroDeAlunos: 200,
+        periodo: 'Integral',
+        concluido: false
+    },
 
-const titulo = ['Turma', 'Curso', 'Início', 'Término', 'Número de alunos', 'Período', 'Concluído']
-let posicaoTitulo = 0
-let conteudo
+    {
+        turma: 'Curie',
+        curso: 'HTML e CSS',
+        inicio: '15/09/2022',
+        termino: '15/10/2022',
+        numeroDeAlunos: 180,
+        periodo: 'Noturno',
+        concluido: true
+    },
 
-for(chave in turmas){
-    let li = document.createElement('li')
+    {
+        turma: 'Zhenyi',
+        curso: 'HTML e CSS',
+        inicio: '01/11/2022',
+        termino: '01/01/2023',
+        numeroDeAlunos: 80,
+        periodo: 'Integral',
+        concluido: false
+    },
 
-    if(chave != 'concluido'){
-        conteudo = document.createTextNode(`${titulo[posicaoTitulo]}: ${turmas[chave]}`)
-    }else{
-        conteudo = document.createTextNode(`${titulo[posicaoTitulo]}: ${turmas[chave] ? 'Sim' : 'Não'}`)
+    {
+        turma: 'Clarke',
+        curso: 'HTML e CSS',
+        inicio: '04/07/2022',
+        termino: '04/09/2022',
+        numeroDeAlunos: 200,
+        periodo: 'Noturno',
+        concluido: true
+    },
+
+    {
+        turma: 'Blackwell',
+        curso: 'APIsREST',
+        inicio: '20/03/2022',
+        termino: '20/06/2022',
+        numeroDeAlunos: 100,
+        periodo: 'Noturno',
+        concluido: true
+    },
+
+    {
+        turma: 'Elion',
+        curso: 'APIsREST',
+        inicio: '12/01/2022',
+        termino: '12/06/2022',
+        numeroDeAlunos: 200,
+        periodo: 'Noturno',
+        concluido: true
+    },
+
+    {
+        turma: 'Burnell',
+        curso: 'APIsREST',
+        inicio: '18/10/2022',
+        termino: '18/04/2023',
+        numeroDeAlunos: 90,
+        periodo: 'Integral',
+        concluido: false
+    },
+]
+
+function criarListaCurso() {
+    titulos = ['Curso', 'Início', 'Término', 'Número de alunos', 'Período', 'Concluído']
+    let cards = document.querySelector('.cards')
+
+    console.log(cards)
+    for (dicionario of turmas) {
+        let card = document.createElement('div')
+        card.setAttribute('class', 'card')
+        let turma = document.createElement('h4')
+        turma.appendChild(document.createTextNode(`${dicionario.turma}`))
+        card.appendChild(turma)
+        let listaUl = document.createElement('ul')
+
+        let curso = document.createElement('li')
+        curso.innerHTML = '<span class="titulo">Curso: '
+        curso.innerHTML += `${dicionario.curso}`
+
+        let inicio = document.createElement('li')
+        inicio.innerHTML = '<span class="titulo">Início: '
+        inicio.innerHTML += `${dicionario.inicio}`
+
+        let termino = document.createElement('li')
+        termino.innerHTML = '<span class="titulo">Término: '
+        termino.innerHTML += `${dicionario.termino}`
+
+        let numeroDeAlunos = document.createElement('li')
+        numeroDeAlunos.innerHTML = '<span class="titulo">Número de alunos: '
+        numeroDeAlunos.innerHTML += `${dicionario.numeroDeAlunos}`
+
+        let periodo = document.createElement('li')
+        periodo.innerHTML = '<span class="titulo">Período: '
+        periodo.innerHTML += `${dicionario.termino}`
+
+        let concluido = document.createElement('li')
+        concluido.innerHTML = '<span class="titulo">Período: '
+        concluido.innerHTML += `${dicionario.concluido ? 'Sim' : 'Não'}`
+
+        listaUl.appendChild(curso)
+        listaUl.appendChild(inicio)
+        listaUl.appendChild(termino)
+        listaUl.appendChild(numeroDeAlunos)
+        listaUl.appendChild(periodo)
+        listaUl.appendChild(concluido)
+
+        card.appendChild(listaUl)
+        cards.appendChild(card)
+
     }
-    
-    li.appendChild(conteudo)
-    ul.appendChild(li)
-    posicaoTitulo++
 }
 
-const divCards = document.getElementById('cards')
-document.body.insertBefore(ul, divCards)
-console.log(ul)
-
-/* let ul = document.createElement('ul')
-let li = document.createElement('li')
-
-let conteudoLi = document.createTextNode("Curso: Javascript")
-
-li.appendChild(conteudoLi)
-
-ul.appendChild(li)
-
-console.log(ul) */
+criarListaCurso()
