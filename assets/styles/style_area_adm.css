@@ -1,0 +1,30 @@
+body {
+    height: 170vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 8.56vh 80vh 42.24vh;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 20vw 80vw;
+    grid-template-rows: 15vh 70vh;
+    background-color: burlywood;
+}
+
+.barra-lateral {
+    background-color: lightsalmon;
+    grid-column: 1/2;
+    grid-row: 1/3;
+}
+
+.pesquisar {
+    background-color: lightseagreen;
+}
+
+.cards {
+    background-color: firebrick;
+    display: flex;
+    padding: ;
+}
