@@ -83,6 +83,7 @@ function criarListaCurso() {
     let cards = document.querySelector('.cards')
 
     console.log(cards)
+    
     for (dicionario of turmas) {
         let card = document.createElement('div')
         card.setAttribute('class', 'card')

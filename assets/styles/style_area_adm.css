@@ -1,6 +1,6 @@
 body {
     height: 170vh;
-    width: 100vw;
+    width: 98.785vw;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 8.56vh 80vh 42.24vh;
@@ -8,46 +8,69 @@ body {
 
 .container {
     display: flex;
-    background-color: burlywood;
+    background-color: #F6C34A;
 }
 
-.barra-lateral {
-    background-color: blue;
-    justify-self: flex-end;
+.menu-lateral {
+    color:#FFFFFF;
+    background-color:#0E0E0E;
     height: 80vh;
     width: 20vw;
 }
 
-.pesquisar {
-    background-color: lightseagreen;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    height: 4vh;
+.menu-lateral > p{
+    margin-top: 5vh;
+    margin-left: 2vw;
 }
-
-#caixa-busca {
-    width: 20%;
-}
-
 .cursos {
-    background-color: cadetblue;
+
     height: 80vh;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     gap: 8vh;
 }
 
+.pesquisar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 4vh;
+    margin-top: 7vh;
+}
+
+#caixa-busca {
+    width: 20%;
+    outline: none;
+    border-top-left-radius: 0.2em;
+    border-bottom-left-radius: 0.2em;
+    border: none;
+    padding-left: 0.5vw;
+    font-size: 0.75em;
+    font-family: 'Open Sans';
+}
+
+
+#btn-buscar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6%;
+    background-color: #0E0E0E;
+    color: #FFFFFF;
+    border-top-right-radius: 0.2em;
+    border-bottom-right-radius: 0.2em;
+}
+
+
 .cards {
-    background-color: blueviolet;
-    width: 50vw;
+    width: 51vw;
     display: grid;
-    grid-template-columns: repeat(4, 25%);
+    grid-template-columns: repeat(4, 23%);
     column-gap: 2vh;
     row-gap: 2vh;
+    justify-content: center;
 }
 
 .card {
@@ -59,6 +82,7 @@ body {
     padding: 2vh;
     gap: 1vh;
     font-size: 0.7em;
+    border-radius: 0.7em;
 }
 
 .card>h4 {

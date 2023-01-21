@@ -60,6 +60,7 @@ footer {
     justify-items: center;
     row-gap: 1vh;
     background-color: #F6C34A;
+    border-top: 1px solid #0E0E0E;
 }
 
 footer>figure {
