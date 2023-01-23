@@ -12,31 +12,30 @@ body {
 }
 
 .menu-lateral {
-    color:#FFFFFF;
-    background-color:#0E0E0E;
+    color: #FFFFFF;
+    background-color: #0E0E0E;
     height: 80vh;
     width: 20vw;
 }
 
-.menu-lateral > ul{
+.menu-lateral>ul {
     margin-top: 6vh;
     margin-left: 5vw;
 }
 
-.menu-lateral > ul > li{
+.menu-lateral>ul>li {
     margin-bottom: 2vh;
 }
 
-.menu-lateral > ul > li > a{
+.menu-lateral>ul>li>a {
     font-size: 0.75em;
 }
 
-.menu-lateral > ul > li:nth-child(1){
+.menu-lateral>ul>li:nth-child(1) {
     text-shadow: 0 0 4px #fff;
 }
 
 .cursos {
-
     height: 80vh;
     width: 100%;
     display: flex;
@@ -64,8 +63,7 @@ body {
     font-family: 'Open Sans';
 }
 
-
-#btn-buscar{
+#btn-buscar {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -75,7 +73,6 @@ body {
     border-top-right-radius: 0.2em;
     border-bottom-right-radius: 0.2em;
 }
-
 
 .cards {
     width: 52vw;

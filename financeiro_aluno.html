@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financeiro Aluno</title>
     <link rel="stylesheet" href="./assets/styles/style_padrao_header_e_footer.css">
-    <link rel="stylesheet" href="./assets/styles/style_matricula.css">
-    <title>Matriculas</title>
+    <link rel="stylesheet" href="./assets/styles/style_financeiro_aluno.css">
 </head>
 
 <body>
@@ -25,53 +25,54 @@
             </ul>
         </nav>
     </header>
+    <section class="container">
 
-    <main>
-        <section class="container">
+        <aside class="menu-lateral">
+            <ul>
+                <li><a href="./turmas.html">Turmas</a></li>
+                <li><a href="./matricula.html">Matricula</a></li>
+                <li><a href="./financeiro_aluno.html">Financeiro Aluno</a></li>
+            </ul>
+        </aside>
 
-            <aside class="menu-lateral">
-                <ul>
-                    <li><a href="./turmas.html">Turmas</a></li>
-                    <li><a href="./matricula.html">Matricula</a></li>
-                    <li><a href="./financeiro_aluno.html">Financeiro Aluno</a></li>
-                </ul>
-            </aside>
-
-            <section class="area-matricula">
-                <div class="matricula">
-                    <p>Matrículas</p>
-                    <form action="#">
-                        <label for="nome">Nome</label>
-                        <input type="text" name="nome" id="nome">
-                        <label for="curso">Curso</label>
-                        <input type="text" name="curso" id="curso">
-                        <label for="turma">Turma</label>
-                        <input type="text" name="turma" id="turma">
-                        <label for="numero-de-parcelas">Número de parcelas</label>
-                        <input type="text" name="numero-de-parcelas" id="numero-de-parcelas">
-                        <button id="btn-matricular">Matricular aluno</button>
-                    </form>
-                </div>
-                <div class="status-matricula">
-
-                    <div class="titulo-imagem">
-                        <p>Aluno Matriculado</p>
-                        <img src="./assets/img/sinal-de-confirmado.png" alt="círculo verde com uma letra v no centro" id="imagem-de-confirmacao">
+        <section class="compra">
+            <section class="financeiro">
+                <p class="titulo">Financeiro</p>
+                <p>Curso</p>
+                <div class="carrinho">
+                    <div class="produto">
+                        <p>JavaScrript</p> <img src="./assets/img/cancelar_item_x.png" alt="botão de cancelar item do carrinho">
                     </div>
-
-                    <ul class="listar-dados-aluno">
-                        <li id="li-matriculado">Aluno Matriculado</li>
-                        <li id="li-nome-aluno">Nome: Calvin Klein</li>
-                        <li id="li-curso">Curso: JavaScript</li>
-                        <li id="li-turma">Turma: Clarke</li>
-                    </ul>
+                    <div class="produto">
+                        <p>HTML</p> <img src="./assets/img/cancelar_item_x.png" alt="botão de cancelar item do carrinho">
+                    </div>
                 </div>
+                <p id="add-curso">Adicionar outro curso</p>
+                <p>Número de parcelas</p>
+                <button id="btn-ver-valor">Ver valor</button>
+                <p id="titulo-valor">Valor</p>
+                <p class="valor-total-compra">Desconto de 20%. Parcelas de 2x de R$1880.00</p>
             </section>
 
+            <section class="relatorio-aluno">
+                <p class="titulo">Relatório Aluno</p>
+                <label for="nome"></label>
+                <input type="text" name="nome" id="nome">
+                <button id="btn-buscar">Buscar</button>
+                <ul class="relatorio">
+                    <li>Aluno: Chris Evans</li>
+                    <li>Turma: Hipátia</li>
+                    <li>Curso: JavaScript</li>
+                    <li>Valor total: R$900,00</li>
+                    <li>Valor parcela: R$100,00</li>
+                    <li>N°</li>
+                </ul>
+            </section>
 
         </section>
-    </main>
 
+
+    </section>
     <footer>
         <figure>
             <a href="./index.html"></a>
