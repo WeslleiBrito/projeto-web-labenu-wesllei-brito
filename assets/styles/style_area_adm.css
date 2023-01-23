@@ -18,10 +18,23 @@ body {
     width: 20vw;
 }
 
-.menu-lateral > p{
-    margin-top: 5vh;
-    margin-left: 2vw;
+.menu-lateral > ul{
+    margin-top: 6vh;
+    margin-left: 5vw;
 }
+
+.menu-lateral > ul > li{
+    margin-bottom: 2vh;
+}
+
+.menu-lateral > ul > li > a{
+    font-size: 0.75em;
+}
+
+.menu-lateral > ul > li:nth-child(1){
+    text-shadow: 0 0 4px #fff;
+}
+
 .cursos {
 
     height: 80vh;
@@ -65,7 +78,7 @@ body {
 
 
 .cards {
-    width: 51vw;
+    width: 52vw;
     display: grid;
     grid-template-columns: repeat(4, 23%);
     column-gap: 2vh;
