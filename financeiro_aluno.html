@@ -38,27 +38,30 @@
         <section class="compra">
             <section class="financeiro">
                 <p class="titulo">Financeiro</p>
-                <p>Curso</p>
+                <p class="titulo-padrao">Curso</p>
                 <div class="carrinho">
-                    <div class="produto">
+                    <div class="item">
                         <p>JavaScrript</p> <img src="./assets/img/cancelar_item_x.png" alt="botão de cancelar item do carrinho">
                     </div>
-                    <div class="produto">
+                    <div class="item">
                         <p>HTML</p> <img src="./assets/img/cancelar_item_x.png" alt="botão de cancelar item do carrinho">
                     </div>
                 </div>
-                <p id="add-curso">Adicionar outro curso</p>
-                <p>Número de parcelas</p>
+                <a href="./matricula.html" id="add-curso">Adicionar outro curso</a>
+                <label for="n-parcelas" class="titulo-padrao">Número de parcelas</label>
+                <input type="number" name="n-parcelas" id="n-parcelas" class="input-parcelas" min="1" max="10">
                 <button id="btn-ver-valor">Ver valor</button>
-                <p id="titulo-valor">Valor</p>
-                <p class="valor-total-compra">Desconto de 20%. Parcelas de 2x de R$1880.00</p>
+                <p class="titulo">Valor</p>
+                <p id="resumo-valor-compra">Desconto de 20%. Parcelas de 2x de R$1880.00</p>
             </section>
 
-            <section class="relatorio-aluno">
+            <section id="relatorio-aluno">
                 <p class="titulo">Relatório Aluno</p>
-                <label for="nome"></label>
+
+                <label for="nome" class="titulo-padrao">Nome</label>
                 <input type="text" name="nome" id="nome">
                 <button id="btn-buscar">Buscar</button>
+
                 <ul class="relatorio">
                     <li>Aluno: Chris Evans</li>
                     <li>Turma: Hipátia</li>

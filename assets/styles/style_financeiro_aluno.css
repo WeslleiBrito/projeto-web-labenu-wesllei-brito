@@ -3,7 +3,7 @@ body {
     width: 98.785vw;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 8.56vh 80vh 42.24vh;
+    grid-template-rows: 8.56vh 100vh 42.24vh;
 }
 
 .container {
@@ -14,7 +14,7 @@ body {
 .menu-lateral {
     color: #FFFFFF;
     background-color: #0E0E0E;
-    height: 80vh;
+    height: 100vh;
     width: 20vw;
 }
 
@@ -43,22 +43,108 @@ body {
     gap: 10vw;
 }
 
+.financeiro {
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo {
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.titulo:nth-child(1) {
+    margin-bottom: 5vh;
+}
+
+.titulo-padrao {
+    font-size: 0.8em;
+    font-weight: 700;
+    margin-bottom: 0.5vh;
+}
+
 .carrinho {
-    height: 1.55em;
+    width: 20vw;
+    margin: 0.5vh 0 1vh 0;
     display: flex;
     background-color: #FFFFFF;
     gap: 0.5vw;
-    padding: 0.5vh 0 0 1vw;
+    padding: 0.2em 0 0.3em 0.5vw;
     border-radius: 0.2em;
+    flex-flow: row wrap;
 }
 
-.carrinho>div {
-    height: 80%;
+.item {
+    height: 3.15vh;
     display: inline-flex;
     border: 1px dashed black;
     border-radius: 0.4em;
     padding: 0.5em;
     font-size: 0.6em;
     align-items: center;
-    gap: 1vw;
+    gap: 0.3vw;
+}
+
+.item>p:hover {
+    cursor: Default;
+}
+
+.item>img:hover {
+    cursor: pointer;
+}
+
+#add-curso {
+    display: flex;
+    margin-bottom: 2vh;
+    font-size: 0.7em;
+    font-weight: 400;
+    text-decoration: underline #000000;
+}
+
+.input-parcelas {
+    height: 4.3vh;
+    width: 20vw;
+    border: none;
+    border-radius: 0.2em;
+    outline: none;
+    padding-left: 0.5vw;
+    margin: 0.5vh 0 5vh 0;
+}
+
+.compra>section>button {
+    height: 6vh;
+    width: 20vw;
+    border: none;
+    border-radius: 0.5em;
+    color: #FBFBFB;
+    background-color: #0E0E0E;
+    margin-bottom: 10vh;
+}
+
+#resumo-valor-compra {
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+#relatorio-aluno {
+    display: flex;
+    flex-direction: column;
+}
+
+#nome {
+    height: 4.3vh;
+    width: 20vw;
+    margin-bottom: 6vh;
+    padding-left: 0.5vw;
+    outline: none;
+    border: none;
+    border-radius: 0.2em;
+}
+
+.relatorio {
+    margin-top: 8vh;
+}
+
+.relatorio>li {
+    font-weight: 400;
 }
