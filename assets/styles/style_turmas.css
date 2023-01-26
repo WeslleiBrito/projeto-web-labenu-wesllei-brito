@@ -74,7 +74,7 @@ body {
     border-bottom-right-radius: 0.2em;
 }
 
-.cards {
+#cards {
     width: 52vw;
     display: grid;
     grid-template-columns: repeat(4, 23%);

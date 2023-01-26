@@ -204,6 +204,19 @@ function buscarTurma(nomeTurma = "") {
 
 }
 
+function buscaAutomatica() {
+    const textoInput = document.getElementById('caixa-busca')
+    const listaTurma = buscarTurma(textoInput.value)
+    criarCard(listaTurma)
+    
+}
+
+function buscaBotao(){
+    const textoInputBusca = document.getElementById('caixa-busca') 
+    const listaTurmas = buscarTurma(textoInputBusca.value)
+    criarCard(listaTurmas)
+
+}
 function buscarEstudante(nomeEstudante) {
     const dadosEstudantes = estutantes.filter((objeto) => { return objeto.estudante.includes(nomeEstudante) })[0]
 
@@ -238,10 +251,20 @@ function imprimir(dados) {
 }
 
 function criarCard(listaTurma) {
+    if (document.getElementById('aluno-nao-encontrado')){
+        const removeMensagem = document.getElementById('aluno-nao-encontrado')
+        removeMensagem.parentNode.removeChild(removeMensagem)
+    }
+
+    if(document.getElementById('cards')){
+        const removeCards = document.getElementById('cards')
+        removeCards.parentNode.removeChild(removeCards)
+    }
+
     const curso = document.querySelector('.cursos')
 
     const cards = document.createElement('div')
-    cards.setAttribute('class', 'cards')
+    cards.setAttribute('id', 'cards')
     curso.appendChild(cards)
 
     if (typeof listaTurma === 'object') {
@@ -286,16 +309,14 @@ function criarCard(listaTurma) {
 
         }
     } else {
-        console.log('Entrei no else do buscar turma')
+        if (!document.getElementById('aluno-nao-encontrado')){
+            const mensagem = document.createElement('p')
+            mensagem.setAttribute('id', 'aluno-nao-encontrado')
+            mensagem.innerHTML = `${listaTurma}`
+            curso.appendChild(mensagem)
+        }
+        
     }
 
 }
 
-function buscaAutomatica() {
-    const textoInput = document.getElementById('caixa-busca')
-    const cards = document.querySelector('.cards')
-    cards.classList.remove('card')
-    criarCard(buscarTurma(textoInput.value))
-    console.log(buscarTurma(textoInput.value))
-    console.log('Estou criando', textoInput.value)
-}
