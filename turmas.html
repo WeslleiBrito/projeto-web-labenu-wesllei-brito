@@ -10,7 +10,7 @@
     <title>Área ADM</title>
 </head>
 
-<body>
+<body onload="criarCard(buscarTurma())">
     <header>
         <nav>
             <a href="./index.html" class="link-logo-labescola">
@@ -40,12 +40,10 @@
 
             <section class="cursos">
                 <div class="pesquisar">
-                    <input type="text" name="caixa-busca" id="caixa-busca" placeholder="Digite o número da turma">
+                    <input type="text" onkeyup="{buscaAutomatica()}" name="caixa-busca" id="caixa-busca" placeholder="Digite o número da turma">
                     <button id="btn-buscar">Buscar</button>
                 </div>
-                <div class="cards">
-                    <!--Criado pelo DOM-->
-                </div>
+
             </section>
 
         </section>
