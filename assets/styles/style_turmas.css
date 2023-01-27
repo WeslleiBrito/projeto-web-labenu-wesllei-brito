@@ -74,6 +74,10 @@ body {
     border-bottom-right-radius: 0.2em;
 }
 
+#btn-buscar:hover {
+    cursor: pointer;
+}
+
 #cards {
     width: 52vw;
     display: grid;
@@ -107,4 +111,9 @@ body {
 
 .titulo {
     font-weight: 700;
+}
+
+#aluno-nao-encontrado {
+    color: crimson;
+    font-size: 2rem;
 }

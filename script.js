@@ -208,33 +208,75 @@ function buscaAutomatica() {
     const textoInput = document.getElementById('caixa-busca')
     const listaTurma = buscarTurma(textoInput.value)
     criarCard(listaTurma)
-    
+
 }
 
-function buscaBotao(){
-    const textoInputBusca = document.getElementById('caixa-busca') 
+function buscaBotao() {
+    const textoInputBusca = document.getElementById('caixa-busca')
     const listaTurmas = buscarTurma(textoInputBusca.value)
     criarCard(listaTurmas)
 
 }
+
 function buscarEstudante(nomeEstudante) {
     const dadosEstudantes = estutantes.filter((objeto) => { return objeto.estudante.includes(nomeEstudante) })[0]
 
     return dadosEstudantes ? dadosEstudantes : 'Aluno não encontrado'
 }
 
-function matricular(nome, curso, turma, numeroDeParcelas) {
-    estutantes.push({
-        estudante: nome,
-        curso: curso,
-        turma: turma,
-        nParcelas: numeroDeParcelas
-    })
+function matricular(nome = "", curso = "", turma = "", numeroDeParcelas = 0) {
 
-    console.log(estutantes)
-    const novoEstudante = estutantes[estutantes.length - 1]
-    console.log(`\nAluno Matriculado\nNome: ${novoEstudante.estudante}\nCurso: ${novoEstudante.curso}\nTurma: ${novoEstudante.turma}`)
+    const parametros = [nome, curso, turma, numeroDeParcelas]
+    const stringCampos = ['Nome', 'Curso', 'Turma', 'Número de parcelas']
+    const camposNaopreencidos = []
+
+    for (let i = 0; i < parametros.length; i++) {
+        if (!parametros[i]) {
+            camposNaopreencidos.push(stringCampos[i])
+        }
+    }
+
+    if (camposNaopreencidos.length === 0) {
+
+        estutantes.push({
+            estudante: nome,
+            curso: curso,
+            turma: turma,
+            nParcelas: numeroDeParcelas
+        })
+
+        return estutantes[estutantes.length - 1]
+
+    } else {
+        let strCampos = String(camposNaopreencidos)
+        let contador = 0
+        let ultimaVirgula = 0
+
+
+        if (camposNaopreencidos.length === 1) {
+
+            return `O campo ${strCampos}, não foi preenchido.`
+        }
+
+        strCampos = strCampos.replaceAll(',', ', ')
+
+        for (caracter of strCampos) {
+            contador++
+            if (caracter === ',') {
+                ultimaVirgula = contador
+            }
+
+        }
+
+        strCampos = strCampos.slice(0, ultimaVirgula - 1) + strCampos.slice(ultimaVirgula - 1).replace(', ', ' e ')
+
+        return `Os campos ${strCampos}, não foram preenchidos.`
+    }
+
+
 }
+
+console.log(matricular('wesllei', 'js', 'ozemela', 60))
 
 function adicionarValoresAoCarrinho(nomeCurso, callback) {
     carrinhoCursos.push(callback(nomeCurso).valor)
@@ -251,12 +293,12 @@ function imprimir(dados) {
 }
 
 function criarCard(listaTurma) {
-    if (document.getElementById('aluno-nao-encontrado')){
+    if (document.getElementById('aluno-nao-encontrado')) {
         const removeMensagem = document.getElementById('aluno-nao-encontrado')
         removeMensagem.parentNode.removeChild(removeMensagem)
     }
 
-    if(document.getElementById('cards')){
+    if (document.getElementById('cards')) {
         const removeCards = document.getElementById('cards')
         removeCards.parentNode.removeChild(removeCards)
     }
@@ -309,14 +351,13 @@ function criarCard(listaTurma) {
 
         }
     } else {
-        if (!document.getElementById('aluno-nao-encontrado')){
+        if (!document.getElementById('aluno-nao-encontrado')) {
             const mensagem = document.createElement('p')
             mensagem.setAttribute('id', 'aluno-nao-encontrado')
             mensagem.innerHTML = `${listaTurma}`
             curso.appendChild(mensagem)
         }
-        
+
     }
 
 }
-
