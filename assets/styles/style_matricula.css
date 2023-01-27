@@ -12,55 +12,55 @@ body {
 }
 
 .menu-lateral {
-    color:#FFFFFF;
-    background-color:#0E0E0E;
+    color: #FFFFFF;
+    background-color: #0E0E0E;
     height: 80vh;
     width: 20vw;
 }
 
-.menu-lateral > ul{
+.menu-lateral>ul {
     margin-top: 6vh;
     margin-left: 5vw;
 }
 
-.menu-lateral > ul > li{
+.menu-lateral>ul>li {
     margin-bottom: 2vh;
 }
 
-.menu-lateral > ul > li > a{
+.menu-lateral>ul>li>a {
     font-size: 0.75em;
 }
 
-.menu-lateral > ul > li:nth-child(2){
+.menu-lateral>ul>li:nth-child(2) {
     text-shadow: 0 0 4px #fff;
 }
 
-.area-matricula{
+.area-matricula {
     display: flex;
     padding-left: 10vw;
     gap: 25vw;
     padding-top: 4vh;
 }
 
-.matricula{
+.matricula {
     display: flex;
     flex-direction: column;
     gap: 1.5vh;
 }
 
-.matricula > p {
+.matricula>p {
     font-size: 0.85em;
 }
 
-.titulo-imagem > p{
+.titulo-imagem>p {
     font-size: 0.85em;
 }
 
-.matricula > form > label{
+.matricula>form>label {
     font-size: 0.7em;
 }
 
-.matricula > form > input{
+.matricula>form>input {
     display: block;
     height: 2em;
     width: 22vw;
@@ -69,7 +69,7 @@ body {
     border-radius: 0.2em;
 }
 
-#btn-matricular{
+#btn-matricular {
     width: 22vw;
     height: 5vh;
     margin-top: 3vh;
@@ -78,23 +78,29 @@ body {
     color: #FFFFFF;
     background-color: #0E0E0E;
 }
-.status-matricula{
+
+.status-matricula-off {
+    display: none;
+}
+
+.status-matricula {
     display: flex;
     flex-direction: column;
     gap: 3vh;
 }
-.titulo-imagem{
+
+.titulo-imagem {
     display: flex;
     align-items: center;
     gap: 1vw;
 }
 
-.titulo-imagem > img{
+.titulo-imagem>img {
     width: 1.2vw;
     height: 1.2vw;
 }
 
-.listar-dados-aluno > li{
+.listar-dados-aluno>li {
     font-weight: 400;
     font-size: 0.8em;
 }

@@ -10,7 +10,7 @@
     <title>Matriculas</title>
 </head>
 
-<body>
+<body onload="{ocultarStatusAluno()}">
     <header>
         <nav>
             <a href="./index.html" class="link-logo-labescola">
@@ -49,21 +49,21 @@
                         <input type="text" name="turma" id="turma">
                         <label for="numero-de-parcelas">Número de parcelas</label>
                         <input type="text" name="numero-de-parcelas" id="numero-de-parcelas">
-                        <button id="btn-matricular">Matricular aluno</button>
+                        <button id="btn-matricular" onclick="{matricular(event)}">Matricular aluno</button>
                     </form>
                 </div>
                 <div class="status-matricula">
 
                     <div class="titulo-imagem">
-                        <p>Aluno Matriculado</p>
-                        <img src="./assets/img/sinal-de-confirmado.png" alt="círculo verde com uma letra v no centro" id="imagem-de-confirmacao">
+                        <p id="titulo"></p>
+
                     </div>
 
                     <ul class="listar-dados-aluno">
-                        <li id="li-matriculado">Aluno Matriculado</li>
-                        <li id="li-nome-aluno">Nome: Calvin Klein</li>
-                        <li id="li-curso">Curso: JavaScript</li>
-                        <li id="li-turma">Turma: Clarke</li>
+                        <li id="li-matriculado"></li>
+                        <li id="li-nome-aluno"></li>
+                        <li id="li-curso"></li>
+                        <li id="li-turma"></li>
                     </ul>
                 </div>
             </section>

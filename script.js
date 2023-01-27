@@ -224,7 +224,16 @@ function buscarEstudante(nomeEstudante) {
     return dadosEstudantes ? dadosEstudantes : 'Aluno não encontrado'
 }
 
-function matricular(nome = "", curso = "", turma = "", numeroDeParcelas = 0) {
+function matricular(event) {
+
+    event.preventDefault()
+
+
+    let retorno
+    const nome = document.getElementById('nome').value
+    const curso = document.getElementById('curso').value
+    const turma = document.getElementById('turma').value
+    const numeroDeParcelas = document.getElementById('numero-de-parcelas').value
 
     const parametros = [nome, curso, turma, numeroDeParcelas]
     const stringCampos = ['Nome', 'Curso', 'Turma', 'Número de parcelas']
@@ -245,7 +254,7 @@ function matricular(nome = "", curso = "", turma = "", numeroDeParcelas = 0) {
             nParcelas: numeroDeParcelas
         })
 
-        return estutantes[estutantes.length - 1]
+        retorno = estutantes[estutantes.length - 1]
 
     } else {
         let strCampos = String(camposNaopreencidos)
@@ -255,7 +264,7 @@ function matricular(nome = "", curso = "", turma = "", numeroDeParcelas = 0) {
 
         if (camposNaopreencidos.length === 1) {
 
-            return `O campo ${strCampos}, não foi preenchido.`
+            retorno = `O campo ${strCampos}, não foi preenchido.`
         }
 
         strCampos = strCampos.replaceAll(',', ', ')
@@ -270,17 +279,55 @@ function matricular(nome = "", curso = "", turma = "", numeroDeParcelas = 0) {
 
         strCampos = strCampos.slice(0, ultimaVirgula - 1) + strCampos.slice(ultimaVirgula - 1).replace(', ', ' e ')
 
-        return `Os campos ${strCampos}, não foram preenchidos.`
+        retorno = `Os campos ${strCampos}, não foram preenchidos.`
     }
 
+    confirmarMatricula(retorno)
 
 }
-
-console.log(matricular('wesllei', 'js', 'ozemela', 60))
 
 function adicionarValoresAoCarrinho(nomeCurso, callback) {
     carrinhoCursos.push(callback(nomeCurso).valor)
 }
+
+function confirmarMatricula(resultado) {
+
+    if (typeof resultado === "object") {
+        const divImagem = document.querySelector('.titulo-imagem')
+
+        const titulo = document.getElementById('titulo')
+        const status = document.getElementById('li-matriculado')
+        const nome = document.getElementById('li-nome-aluno')
+        const curso = document.getElementById('li-curso')
+        const turma = document.getElementById('li-turma')
+
+        if (!document.getElementById('imagem-de-confirmacao')) {
+            const imagem = document.createElement('img')
+            imagem.setAttribute('src', "./assets/img/sinal-de-confirmado.png")
+            imagem.setAttribute('id', "imagem-de-confirmacao")
+            divImagem.appendChild(imagem)
+        }
+
+
+        titulo.innerHTML = 'Aluno Matriculado'
+        status.innerHTML = 'Aluno Matriculado'
+        nome.innerHTML = `Nome: ${resultado.estudante}`
+        curso.innerHTML = `Curso: ${resultado.curso}`
+        turma.innerHTML = `Turma: ${resultado.turma}`
+
+        const div = document.querySelector('.status-matricula-off')
+        div.setAttribute('class', 'status-matricula')
+    } else {
+        alert(resultado)
+    }
+
+}
+
+function ocultarStatusAluno() {
+    const div = document.querySelector('.status-matricula')
+    div.setAttribute('class', 'status-matricula-off')
+}
+
 
 function relatorioEstudante(nomeEstudante) {
     const dadosEstudantes = estutantes.filter((objeto) => { return objeto.estudante === nomeEstudante })[0]
