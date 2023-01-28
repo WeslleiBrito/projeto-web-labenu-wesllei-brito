@@ -230,12 +230,12 @@ function matricular(event) {
 
 
     let retorno
-    const nome = document.getElementById('nome').value
-    const curso = document.getElementById('curso').value
-    const turma = document.getElementById('turma').value
-    const numeroDeParcelas = document.getElementById('numero-de-parcelas').value
+    const nome = document.getElementById('nome')
+    const curso = document.getElementById('curso')
+    const turma = document.getElementById('turma')
+    const numeroDeParcelas = document.getElementById('numero-de-parcelas')
 
-    const parametros = [nome, curso, turma, numeroDeParcelas]
+    const parametros = [nome.value, curso.value, turma.value, numeroDeParcelas.value]
     const stringCampos = ['Nome', 'Curso', 'Turma', 'Número de parcelas']
     const camposNaopreencidos = []
 
@@ -248,11 +248,16 @@ function matricular(event) {
     if (camposNaopreencidos.length === 0) {
 
         estutantes.push({
-            estudante: nome,
-            curso: curso,
-            turma: turma,
-            nParcelas: numeroDeParcelas
+            estudante: nome.value,
+            curso: curso.value,
+            turma: turma.value,
+            nParcelas: numeroDeParcelas.value
         })
+
+        nome.value = ''
+        curso.value = ''
+        turma.value = ''
+        numeroDeParcelas.value = ''
 
         retorno = estutantes[estutantes.length - 1]
 
