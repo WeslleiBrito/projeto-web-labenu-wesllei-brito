@@ -43,16 +43,16 @@
                     <form action="#">
                         <label for="nome">Nome</label>
                         <input type="text" name="nome" id="nome">
-                        <label for="curso">Curso</label>
-                        
-                        <select nome="curso" id="cursos" onclick="renderizaOpcoesNoHtml()">
+
+                        <label for="cursos">Curso</label>
+                        <select nome="curso" id="cursos" onchange="listarTurmas()">
                             <option value="" disabled >Selecione</option>
-                            <option value="APIsREST">APIsREST</option>
-                            <option value="HTML e CSS" >HTML e CSS</option>
-                            <option value="JavaScript" >JavaScript</option>
                         </select>
-                        <label for="turma">Turma</label>
-                        <input type="text" name="turma" id="turma">
+
+                        <label for="turmas">Turma</label>
+                        <select nome="curso" id="turmas">
+                        </select>
+
                         <label for="numero-de-parcelas">Número de parcelas</label>
                         <input type="text" name="numero-de-parcelas" id="numero-de-parcelas">
                         <button id="btn-matricular" onclick="{matricular(event)}">Matricular aluno</button>

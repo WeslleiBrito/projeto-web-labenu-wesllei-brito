@@ -22,6 +22,30 @@ const cursos = [{
 }
 ]
 
+function listarCursos(){
+    
+    const nomeCursos = cursos.map(objeto => (objeto.curso))
+
+    for(item of carrinhoCursos){
+        if(nomeCursos.includes(item.curso)){
+            nomeCursos.splice(nomeCursos.indexOf(item.curso), 1)
+        }
+    }
+
+    for(nome of nomeCursos){
+        const selecao = document.getElementById('cursos')
+        const opcao = document.createElement('option')
+    
+        opcao.innerHTML = nome
+        opcao.setAttribute('value', nome)
+
+        selecao.appendChild(opcao)
+    }
+   
+}
+
+
+listarCursos()
 
 const turmas = [{
     turma: 'Hipátia',
@@ -75,7 +99,7 @@ const turmas = [{
 
 {
     turma: 'Blackwell',
-    curso: 'APIsREST',
+    curso: 'APIs REST',
     inicio: '20/03/2022',
     termino: '20/06/2022',
     numeroDeAlunos: 100,
@@ -85,7 +109,7 @@ const turmas = [{
 
 {
     turma: 'Elion',
-    curso: 'APIsREST',
+    curso: 'APIs REST',
     inicio: '12/01/2022',
     termino: '12/06/2022',
     numeroDeAlunos: 200,
@@ -95,7 +119,7 @@ const turmas = [{
 
 {
     turma: 'Burnell',
-    curso: 'APIsREST',
+    curso: 'APIs REST',
     inicio: '18/10/2022',
     termino: '18/04/2023',
     numeroDeAlunos: 90,
@@ -104,7 +128,25 @@ const turmas = [{
 },
 ]
 
+function listarTurmas(){
+    nomeCurso = document.getElementById('cursos').value
+    const selecao = document.getElementById('turmas')
+    selecao.innerHTML = ""
+    selecao.innerHTML = '<option value="" disabled >Selecione</option>'
+    const turmasAtivas = turmas.filter(objeto => (objeto.curso === nomeCurso && !objeto.concluido))
+    
+    for(turma of turmasAtivas){
+        
+        const opcao = document.createElement('option')
 
+        opcao.innerHTML = turma.turma
+        opcao.setAttribute('value', turma.turma)
+
+        selecao.appendChild(opcao)
+    }
+}
+
+listarTurmas()
 const verificarTurmasAbertas = (nomeCurso = "") =>{
     if(nomeCurso){
         return turmas.filter(objeto => (objeto.curso.toLowerCase().includes(nomeCurso.toLowerCase()) && !objeto.concluido))
@@ -121,8 +163,6 @@ function renderizaOpcoesNoHtml(){
     const caixaDeSelecao = document.getElementById('cursos')
     console.log(caixaDeSelecao.value)
 }
-
-renderizaOpcoesNoHtml()
 
 
 const estutantes = [{
@@ -253,8 +293,8 @@ function matricular(event) {
 
     let retorno
     const nome = document.getElementById('nome')
-    const curso = document.getElementById('curso')
-    const turma = document.getElementById('turma')
+    const curso = document.getElementById('cursos')
+    const turma = document.getElementById('turmas')
     const numeroDeParcelas = document.getElementById('numero-de-parcelas')
 
     const parametros = [nome.value, curso.value, turma.value, numeroDeParcelas.value]
