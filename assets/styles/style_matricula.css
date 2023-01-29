@@ -58,18 +58,26 @@ body {
 
 .matricula>form>label {
     font-size: 0.7em;
+    display: block;
 }
 
-.matricula>form>input {
-    display: block;
+.matricula>form>input, select {
     height: 2em;
     width: 22vw;
     outline: none;
     border: none;
     border-radius: 0.2em;
+    padding-left: 0.5vw;
+  
 }
 
+option{
+    height: 100%;
+
+
+}
 #btn-matricular {
+    display: block;
     width: 22vw;
     height: 5vh;
     margin-top: 3vh;

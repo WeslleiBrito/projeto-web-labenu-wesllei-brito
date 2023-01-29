@@ -44,7 +44,13 @@
                         <label for="nome">Nome</label>
                         <input type="text" name="nome" id="nome">
                         <label for="curso">Curso</label>
-                        <input type="text" name="curso" id="curso">
+                        
+                        <select nome="curso" id="cursos" onclick="renderizaOpcoesNoHtml()">
+                            <option value="" disabled >Selecione</option>
+                            <option value="APIsREST">APIsREST</option>
+                            <option value="HTML e CSS" >HTML e CSS</option>
+                            <option value="JavaScript" >JavaScript</option>
+                        </select>
                         <label for="turma">Turma</label>
                         <input type="text" name="turma" id="turma">
                         <label for="numero-de-parcelas">Número de parcelas</label>
