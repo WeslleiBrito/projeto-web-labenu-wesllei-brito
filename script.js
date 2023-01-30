@@ -25,15 +25,12 @@ const cursos = [{
 function listarCursos(){
     
     const nomeCursos = cursos.map(objeto => (objeto.curso))
-
-    for(item of carrinhoCursos){
-        if(nomeCursos.includes(item.curso)){
-            nomeCursos.splice(nomeCursos.indexOf(item.curso), 1)
-        }
-    }
+    const selecao = document.getElementById('cursos-selecao')
+    selecao.innerHTML = ''
+    selecao.innerHTML = '<option value="" disabled >Selecione</option>'
 
     for(nome of nomeCursos){
-        const selecao = document.getElementById('cursos')
+        
         const opcao = document.createElement('option')
     
         opcao.innerHTML = nome
@@ -41,11 +38,10 @@ function listarCursos(){
 
         selecao.appendChild(opcao)
     }
+
+    listarTurmas()
    
 }
-
-
-listarCursos()
 
 const turmas = [{
     turma: 'Hipátia',
@@ -129,7 +125,7 @@ const turmas = [{
 ]
 
 function listarTurmas(){
-    nomeCurso = document.getElementById('cursos').value
+    nomeCurso = document.getElementById('cursos-selecao').value
     const selecao = document.getElementById('turmas')
     selecao.innerHTML = ""
     selecao.innerHTML = '<option value="" disabled >Selecione</option>'
@@ -146,7 +142,7 @@ function listarTurmas(){
     }
 }
 
-listarTurmas()
+
 const verificarTurmasAbertas = (nomeCurso = "") =>{
     if(nomeCurso){
         return turmas.filter(objeto => (objeto.curso.toLowerCase().includes(nomeCurso.toLowerCase()) && !objeto.concluido))
@@ -167,32 +163,35 @@ function renderizaOpcoesNoHtml(){
 
 const estutantes = [{
     estudante: 'Chris Evans',
-    turma: 'Hipátia',
-    curso: 'Javascript',
-    valor: 900.00,
-    nParcelas: 9,
-    desconto: false,
-    parcelas: 100.00
+    turma: ['Hipátia'],
+    curso: ['Javascript'],
+    valor: [900.00],
+    nParcelas: [9],
+    desconto: [false],
+    parcelas: [100.00],
+    statusPay: [true]
 },
 
 {
     estudante: 'Halle Berry',
-    turma: 'Burnel',
-    curso: 'APIsRest',
-    valor: 2000.00,
-    nParcelas: '4',
-    desconto: false,
-    parcelas: 4
+    turma: ['Burnel'],
+    curso: ['APIsRest'],
+    valor: [2000.00],
+    nParcelas: [4],
+    desconto: [false],
+    parcelas: [500.00],
+    statusPay: [true]
 },
 
 {
     estudante: 'Lashana lynch',
-    turma: 'Zhenyi',
-    curso: 'HTML e CSS',
-    valor: 500.00,
-    nParcelas: 1,
-    desconto: true,
-    parcelas: 500.00
+    turma: ['Zhenyi'],
+    curso: ['HTML e CSS'],
+    valor: [500.00],
+    nParcelas: [1],
+    desconto: [true],
+    parcelas: [500.00],
+    statusPay: [true]
 },
 ]
 
@@ -238,9 +237,9 @@ function parelarCurso(parcela, curso, arrayDeValores) {
     if (parcela <= 2) {
         valorTotal = valorTotal - somarValorArray(arrayDeValores) * 0.2
         valorParcela = arredonadaParaCima(valorTotal / parcela)
-        console.log(`O curso ${curso} ficou no valor total de R$ ${arredonadaParaCima(valorTotal)}. Em ${parcela}x de ${valorParcela} reais. Foi concedido mais um desconto de 20%, por conta do número de parcela ser menor que 3.`)
+         return [true, `O curso ${curso} ficou no valor total de R$ ${arredonadaParaCima(valorTotal)}. Em ${parcela}x de ${valorParcela} reais. Foi concedido mais um desconto de 20%, por conta do número de parcela ser menor que 3.`]
     } else {
-        console.log(`O curso ${curso} ficou no valor total de R$ ${arredonadaParaCima(valorTotal)}. Em ${parcela}x de ${valorParcela} reais.`)
+        return [false, `O curso ${curso} ficou no valor total de R$ ${arredonadaParaCima(valorTotal)}. Em ${parcela}x de ${valorParcela} reais.`]
 
     }
 }
@@ -293,7 +292,7 @@ function matricular(event) {
 
     let retorno
     const nome = document.getElementById('nome')
-    const curso = document.getElementById('cursos')
+    const curso = document.getElementById('cursos-selecao')
     const turma = document.getElementById('turmas')
     const numeroDeParcelas = document.getElementById('numero-de-parcelas')
 
@@ -311,9 +310,12 @@ function matricular(event) {
 
         estutantes.push({
             estudante: nome.value,
-            curso: curso.value,
             turma: turma.value,
-            nParcelas: numeroDeParcelas.value
+            curso: curso.value,
+            valor: buscarCurso(curso.value)[0].valor,
+            nParcelas: Number(numeroDeParcelas.value),
+            desconto: parelarCurso(Number(numeroDeParcelas.value), curso.value, [curso.value])[0],
+            parcelas: arredonadaParaCima(buscarCurso(curso.value)[0].valor / Number(numeroDeParcelas.value))
         })
 
         nome.value = ''
@@ -321,7 +323,9 @@ function matricular(event) {
         turma.value = ''
         numeroDeParcelas.value = ''
 
+        
         retorno = estutantes[estutantes.length - 1]
+        console.log(retorno)
 
     } else {
         let strCampos = String(camposNaopreencidos)
@@ -353,8 +357,8 @@ function matricular(event) {
 
 }
 
-function adicionarValoresAoCarrinho(nomeCurso, callback) {
-    carrinhoCursos.push(callback(nomeCurso).valor)
+function adicionarItemAoCarrinho(nomeCurso, callback) {
+    carrinhoCursos.push(callback(nomeCurso)[0])
 }
 
 function confirmarMatricula(resultado) {
@@ -475,3 +479,8 @@ function criarCard(listaTurma) {
     }
 
 }
+
+function AdicionarElementoAoCarrinhoDiv(){
+    console.log(document.getElementsByClassName('carrinho'))
+}
+AdicionarElementoAoCarrinhoDiv()
