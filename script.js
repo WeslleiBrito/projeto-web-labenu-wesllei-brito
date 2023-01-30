@@ -481,6 +481,8 @@ function criarCard(listaTurma) {
 }
 
 function AdicionarElementoAoCarrinhoDiv(){
-    console.log(document.getElementsByClassName('carrinho'))
+    listaDeElementos = document.getElementsByClassName('carrinho')[0].children
+    console.log(listaDeElementos[0])
+    
 }
 AdicionarElementoAoCarrinhoDiv()
