@@ -65,13 +65,13 @@ body {
 
 .carrinho {
     width: 20vw;
+    height: 4.3vh;
     margin: 0.5vh 0 1vh 0;
     display: flex;
     background-color: #FFFFFF;
     gap: 0.5vw;
     padding: 0.2em 0 0.3em 0.5vw;
     border-radius: 0.2em;
-    flex-flow: row wrap;
 }
 
 .item {
@@ -96,9 +96,12 @@ body {
 #add-curso {
     display: flex;
     margin-bottom: 2vh;
-    font-size: 0.7em;
+    font-size: 0.8em;
+    color: #0E0E0E;
     font-weight: 400;
-    text-decoration: underline #000000;
+    background: none;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .input-parcelas {
@@ -147,4 +150,13 @@ body {
 
 .relatorio>li {
     font-weight: 400;
+}
+
+#container-add {
+    background-color: #FFF0F5;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 25vw;
+    top: 37vh;
 }
