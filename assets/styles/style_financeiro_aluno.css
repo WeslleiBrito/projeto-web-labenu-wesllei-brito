@@ -159,4 +159,15 @@ body {
     flex-direction: column;
     left: 25vw;
     top: 37vh;
+    padding: 1vw;
+}
+
+#container-add p {
+    font-size: 0.7em;
+    font-weight: 500;
+    width: 20vw;
+}
+
+#item-carrinho {
+    border-bottom: 1px solid #0E0E0E;
 }
