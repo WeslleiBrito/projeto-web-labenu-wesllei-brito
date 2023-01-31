@@ -158,16 +158,48 @@ body {
     display: flex;
     flex-direction: column;
     left: 25vw;
-    top: 37vh;
+    top: 37.5vh;
     padding: 1vw;
+    width: 22vw;
+    gap: 3vh;
+    border-radius: 0.5em;
 }
 
 #container-add p {
     font-size: 0.7em;
     font-weight: 500;
-    width: 20vw;
 }
 
 #item-carrinho {
-    border-bottom: 1px solid #0E0E0E;
+    display: grid;
+    height: 20vh;
+    grid-template-rows: repeat(4, 1fr);
+    border: 1px solid #0E0E0E;
+    border-radius: 0.5em;
+    padding: 1vw;
+    align-content: space-around;
+}
+
+#duracao-valor {
+    display: flex;
+    justify-content: space-between;
+}
+
+ion-icon {
+    height: 4vh;
+    width: 4vh;
+    color: #17774C;
+    border-radius: 50%;
+}
+
+#div-btn-comprar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#div-btn-comprar>img {
+    width: 2vw;
+    height: 2vw;
+    color: #17774C;
 }
