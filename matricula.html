@@ -10,7 +10,7 @@
     <title>Matriculas</title>
 </head>
 
-<body onload="{ocultarStatusAluno(), listarCursos()}">
+<body onload="{ocultarStatusAluno()}">
     <header>
         <nav>
             <a href="./index.html" class="link-logo-labescola">
@@ -45,8 +45,8 @@
                         <input type="text" name="nome" id="nome">
 
                         <label for="cursos">Curso</label>
-                        <select nome="curso" id="cursos-selecao" onchange="listarTurmas()">
-                            <option value="" disabled >Selecione</option>
+                        <select nome="curso" id="cursos-selecao" onchange="listarTurmas()" onclick="listarCursos()">
+                            <option value="" disabled>Selecione</option>
                         </select>
 
                         <label for="turmas">Turma</label>

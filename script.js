@@ -1,20 +1,34 @@
 const carrinhoCursos = []
 let exibeAutomaticaTelaAddCurso = 0
 
-function verificaUltimoLancado() {
-    carrinhoCursos.length === 3 ? exibeAutomaticaTelaAddCurso = 1 : exibeAutomaticaTelaAddCurso = 0
-    console.log(exibeAutomaticaTelaAddCurso)
+function modificaStatusExibeTela(valor) {
+
+    if (valor > 0 && exibeAutomaticaTelaAddCurso < 3) {
+        exibeAutomaticaTelaAddCurso += valor
+        return true
+    } else if (valor < 0 && (exibeAutomaticaTelaAddCurso > 0 && exibeAutomaticaTelaAddCurso < 3)) {
+        exibeAutomaticaTelaAddCurso += valor
+        return true
+    }
+
+    return false
 }
 
-function ativaTelaAddNovamente() {
-    exibeAutomaticaTelaAddCurso = 0
+function clickAtivaTela() {
+
+    if (carrinhoCursos.length < 3) {
+        exibeAutomaticaTelaAddCurso = carrinhoCursos.length
+    }
+
 }
 
 function ativaDesativBtnAddCurso() {
     let statusAddCurso = true
-    carrinhoCursos.length === 3 ? statusAddCurso = false : statusAddCurso = true
-    const btn = document.getElementById('add-curso')
-    btn.setAttribute('disabled', '')
+    if (carrinhoCursos.length === 3) {
+
+        document.getElementById('container-add').remove()
+    }
+
 }
 
 const cursos = [{
@@ -170,12 +184,6 @@ const verificarTurmasAbertas = (nomeCurso = "") => {
 }
 
 const turmasAbertas = verificarTurmasAbertas()
-
-
-function renderizaOpcoesNoHtml() {
-    const caixaDeSelecao = document.getElementById('cursos')
-    console.log(caixaDeSelecao.value)
-}
 
 
 const estutantes = [{
@@ -342,7 +350,6 @@ function matricular(event) {
 
 
         retorno = estutantes[estutantes.length - 1]
-        console.log(retorno)
 
     } else {
         let strCampos = String(camposNaopreencidos)
@@ -422,9 +429,7 @@ function relatorioEstudante(nomeEstudante) {
     return `Aluno: ${dadosEstudantes.estudante}\nTurma: ${dadosEstudantes.turma}\nCurso: ${dadosEstudantes.curso}\nValor Total: ${dadosEstudantes.valor}\nValor Parcela: ${dadosEstudantes.parcelas}\nNº Parcelas: ${dadosEstudantes.nParcelas}`
 }
 
-function imprimir(dados) {
-    console.log(dados)
-}
+function imprimir(dados) {}
 
 function criarCard(listaTurma) {
     if (document.getElementById('aluno-nao-encontrado')) {
@@ -507,11 +512,9 @@ function removeItemCarrinho(event) {
 
     event.target.parentNode.remove()
 
-    if (!exibeAutomaticaTelaAddCurso) {
+    if (modificaStatusExibeTela(-1)) {
         exibeTelaAddCurso(verificaItensCarrinho())
     }
-
-    verificaUltimoLancado()
 
 
 }
@@ -552,65 +555,63 @@ function criaItemCarrinho(listaDeCursos) {
 
     }
 
-    ativaDesativBtnAddCurso()
-
 }
 
 
 function exibeTelaAddCurso() {
+    if (carrinhoCursos.length < 3 && exibeAutomaticaTelaAddCurso < 3) {
+        const listaDeCursos = verificaItensCarrinho()
+        if (document.getElementById('container-add')) {
+            document.getElementById('container-add').remove()
+        }
 
-    const listaDeCursos = verificaItensCarrinho()
-    if (document.getElementById('container-add')) {
-        document.getElementById('container-add').remove()
+        const containerCarrinho = document.createElement('div')
+        containerCarrinho.setAttribute('id', 'container-add')
+
+        for (curso of listaDeCursos) {
+            const dadosCurso = buscarCurso(curso)
+
+            const itemCarrinho = document.createElement('div')
+            itemCarrinho.setAttribute('id', 'item-carrinho')
+
+            const nomeCurso = document.createElement('p')
+            nomeCurso.innerHTML = `<span>Curso:</span> ${dadosCurso[0].curso}`
+
+            const descricaoCurso = document.createElement('p')
+            descricaoCurso.innerHTML = `<span>Descrição:</span> ${dadosCurso[0].descricao}`
+
+            const divDuracaoValor = document.createElement('div')
+            divDuracaoValor.setAttribute('id', 'duracao-valor')
+            const duracaoCurso = document.createElement('p')
+            duracaoCurso.innerHTML = `<span>Duração:</span> ${dadosCurso[0].duracao}`
+            const valorCurso = document.createElement('p')
+            valorCurso.innerHTML = `<span>Valor:</span> ${arredonadaParaCima(dadosCurso[0].valor)}`
+            divDuracaoValor.appendChild(duracaoCurso)
+            divDuracaoValor.appendChild(valorCurso)
+
+            const btnComprar = document.createElement('div')
+            btnComprar.setAttribute('id', 'div-btn-comprar')
+            const icon = document.createElement('img')
+
+            icon.setAttribute('src', './assets/img/bag-add-outline.svg')
+            icon.setAttribute('value', `${dadosCurso[0].curso}`)
+            icon.setAttribute('onclick', '{mostraValor(event)}')
+            btnComprar.appendChild(icon)
+
+            itemCarrinho.appendChild(nomeCurso)
+            itemCarrinho.appendChild(descricaoCurso)
+            itemCarrinho.appendChild(divDuracaoValor)
+            itemCarrinho.appendChild(btnComprar)
+
+            containerCarrinho.appendChild(itemCarrinho)
+
+
+        }
+
+        const posicao = document.querySelector('.financeiro button')
+
+        posicao.insertAdjacentElement('afterend', containerCarrinho)
     }
-
-    const containerCarrinho = document.createElement('div')
-    containerCarrinho.setAttribute('id', 'container-add')
-
-    for (curso of listaDeCursos) {
-        const dadosCurso = buscarCurso(curso)
-
-        const itemCarrinho = document.createElement('div')
-        itemCarrinho.setAttribute('id', 'item-carrinho')
-
-        const nomeCurso = document.createElement('p')
-        nomeCurso.innerHTML = `<span>Curso:</span> ${dadosCurso[0].curso}`
-
-        const descricaoCurso = document.createElement('p')
-        descricaoCurso.innerHTML = `<span>Descrição:</span> ${dadosCurso[0].descricao}`
-
-        const divDuracaoValor = document.createElement('div')
-        divDuracaoValor.setAttribute('id', 'duracao-valor')
-        const duracaoCurso = document.createElement('p')
-        duracaoCurso.innerHTML = `<span>Duração:</span> ${dadosCurso[0].duracao}`
-        const valorCurso = document.createElement('p')
-        valorCurso.innerHTML = `<span>Valor:</span> ${arredonadaParaCima(dadosCurso[0].valor)}`
-        divDuracaoValor.appendChild(duracaoCurso)
-        divDuracaoValor.appendChild(valorCurso)
-
-        const btnComprar = document.createElement('div')
-        btnComprar.setAttribute('id', 'div-btn-comprar')
-        const icon = document.createElement('img')
-
-        icon.setAttribute('src', './assets/img/bag-add-outline.svg')
-        icon.setAttribute('value', `${dadosCurso[0].curso}`)
-        icon.setAttribute('onclick', '{mostraValor(event)}')
-        btnComprar.appendChild(icon)
-
-        itemCarrinho.appendChild(nomeCurso)
-        itemCarrinho.appendChild(descricaoCurso)
-        itemCarrinho.appendChild(divDuracaoValor)
-        itemCarrinho.appendChild(btnComprar)
-
-        containerCarrinho.appendChild(itemCarrinho)
-
-
-    }
-
-    const posicao = document.querySelector('.financeiro button')
-
-    posicao.insertAdjacentElement('afterend', containerCarrinho)
-
 }
 
 function mostraValor(event) {
@@ -618,12 +619,10 @@ function mostraValor(event) {
     const curso = event.target.attributes[1].value
     criaItemCarrinho([curso])
     carrinhoCursos.push({ curso: curso })
-    verificaUltimoLancado()
-    if (carrinhoCursos.length < 3 && exibeAutomaticaTelaAddCurso === 0) {
-        console.log('fiz o teste')
-        exibeTelaAddCurso(verificaItensCarrinho())
-    } else {
-        document.getElementById('container-add').remove()
-    }
 
+
+    if (modificaStatusExibeTela(1)) {
+        exibeTelaAddCurso(verificaItensCarrinho())
+    }
+    ativaDesativBtnAddCurso()
 }
