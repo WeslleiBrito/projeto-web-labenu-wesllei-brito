@@ -23,7 +23,7 @@ function clickAtivaTela() {
 }
 
 function ativaDesativBtnAddCurso() {
-    let statusAddCurso = true
+
     if (carrinhoCursos.length === 3) {
 
         document.getElementById('container-add').remove()
@@ -32,25 +32,25 @@ function ativaDesativBtnAddCurso() {
 }
 
 const cursos = [{
-        curso: 'HTML e CSS',
-        descricao: 'O curso é voltado para o desenvolvimento front-end.',
-        duracao: '1 mês',
-        valor: 500.00,
-    },
+    curso: 'HTML e CSS',
+    descricao: 'O curso é voltado para o desenvolvimento front-end.',
+    duracao: '1 mês',
+    valor: 500.00,
+},
 
-    {
-        curso: 'JavaScript',
-        descricao: 'Foco no back-end.',
-        duracao: '2 mês',
-        valor: 900.00
-    },
+{
+    curso: 'JavaScript',
+    descricao: 'Foco no back-end.',
+    duracao: '2 mês',
+    valor: 900.00
+},
 
-    {
-        curso: 'APIs REST',
-        descricao: 'Ferramenta para ligação entre sistemas.',
-        duracao: '6 meses',
-        valor: 2000.00
-    }
+{
+    curso: 'APIs REST',
+    descricao: 'Ferramenta para ligação entre sistemas.',
+    duracao: '6 meses',
+    valor: 2000.00
+}
 ]
 
 function listarCursos() {
@@ -75,84 +75,84 @@ function listarCursos() {
 }
 
 const turmas = [{
-        turma: 'Hipátia',
-        curso: 'JavaScript',
-        inicio: '30/11/2022',
-        termino: '30/01/2023',
-        numeroDeAlunos: 150,
-        periodo: 'Noturno',
-        concluido: false
-    },
+    turma: 'Hipátia',
+    curso: 'JavaScript',
+    inicio: '30/11/2022',
+    termino: '30/01/2023',
+    numeroDeAlunos: 150,
+    periodo: 'Noturno',
+    concluido: false
+},
 
-    {
-        turma: 'Sibyla',
-        curso: 'JavaScript',
-        inicio: '30/10/2022',
-        termino: '30/12/2022',
-        numeroDeAlunos: 200,
-        periodo: 'Integral',
-        concluido: false
-    },
+{
+    turma: 'Sibyla',
+    curso: 'JavaScript',
+    inicio: '30/10/2022',
+    termino: '30/12/2022',
+    numeroDeAlunos: 200,
+    periodo: 'Integral',
+    concluido: false
+},
 
-    {
-        turma: 'Curie',
-        curso: 'HTML e CSS',
-        inicio: '15/09/2022',
-        termino: '15/10/2022',
-        numeroDeAlunos: 180,
-        periodo: 'Noturno',
-        concluido: true
-    },
+{
+    turma: 'Curie',
+    curso: 'HTML e CSS',
+    inicio: '15/09/2022',
+    termino: '15/10/2022',
+    numeroDeAlunos: 180,
+    periodo: 'Noturno',
+    concluido: true
+},
 
-    {
-        turma: 'Zhenyi',
-        curso: 'HTML e CSS',
-        inicio: '01/11/2022',
-        termino: '01/01/2023',
-        numeroDeAlunos: 80,
-        periodo: 'Integral',
-        concluido: false
-    },
+{
+    turma: 'Zhenyi',
+    curso: 'HTML e CSS',
+    inicio: '01/11/2022',
+    termino: '01/01/2023',
+    numeroDeAlunos: 80,
+    periodo: 'Integral',
+    concluido: false
+},
 
-    {
-        turma: 'Clarke',
-        curso: 'HTML e CSS',
-        inicio: '04/07/2022',
-        termino: '04/09/2022',
-        numeroDeAlunos: 200,
-        periodo: 'Noturno',
-        concluido: true
-    },
+{
+    turma: 'Clarke',
+    curso: 'HTML e CSS',
+    inicio: '04/07/2022',
+    termino: '04/09/2022',
+    numeroDeAlunos: 200,
+    periodo: 'Noturno',
+    concluido: true
+},
 
-    {
-        turma: 'Blackwell',
-        curso: 'APIs REST',
-        inicio: '20/03/2022',
-        termino: '20/06/2022',
-        numeroDeAlunos: 100,
-        periodo: 'Noturno',
-        concluido: true
-    },
+{
+    turma: 'Blackwell',
+    curso: 'APIs REST',
+    inicio: '20/03/2022',
+    termino: '20/06/2022',
+    numeroDeAlunos: 100,
+    periodo: 'Noturno',
+    concluido: true
+},
 
-    {
-        turma: 'Elion',
-        curso: 'APIs REST',
-        inicio: '12/01/2022',
-        termino: '12/06/2022',
-        numeroDeAlunos: 200,
-        periodo: 'Noturno',
-        concluido: true
-    },
+{
+    turma: 'Elion',
+    curso: 'APIs REST',
+    inicio: '12/01/2022',
+    termino: '12/06/2022',
+    numeroDeAlunos: 200,
+    periodo: 'Noturno',
+    concluido: true
+},
 
-    {
-        turma: 'Burnell',
-        curso: 'APIs REST',
-        inicio: '18/10/2022',
-        termino: '18/04/2023',
-        numeroDeAlunos: 90,
-        periodo: 'Integral',
-        concluido: false
-    },
+{
+    turma: 'Burnell',
+    curso: 'APIs REST',
+    inicio: '18/10/2022',
+    termino: '18/04/2023',
+    numeroDeAlunos: 90,
+    periodo: 'Integral',
+    concluido: false
+},
 ]
 
 function listarTurmas() {
@@ -187,37 +187,37 @@ const turmasAbertas = verificarTurmasAbertas()
 
 
 const estutantes = [{
-        estudante: 'Chris Evans',
-        turma: ['Hipátia'],
-        curso: ['Javascript'],
-        valor: [900.00],
-        nParcelas: [9],
-        desconto: [false],
-        parcelas: [100.00],
-        statusPay: [true]
-    },
+    estudante: 'Chris Evans',
+    turma: ['Hipátia'],
+    curso: ['Javascript'],
+    valor: [900.00],
+    nParcelas: [9],
+    desconto: [false],
+    parcelas: [100.00],
+    statusPay: [true]
+},
 
-    {
-        estudante: 'Halle Berry',
-        turma: ['Burnel'],
-        curso: ['APIsRest'],
-        valor: [2000.00],
-        nParcelas: [4],
-        desconto: [false],
-        parcelas: [500.00],
-        statusPay: [true]
-    },
+{
+    estudante: 'Halle Berry',
+    turma: ['Burnel'],
+    curso: ['APIsRest'],
+    valor: [2000.00],
+    nParcelas: [4],
+    desconto: [false],
+    parcelas: [500.00],
+    statusPay: [true]
+},
 
-    {
-        estudante: 'Lashana lynch',
-        turma: ['Zhenyi'],
-        curso: ['HTML e CSS'],
-        valor: [500.00],
-        nParcelas: [1],
-        desconto: [true],
-        parcelas: [500.00],
-        statusPay: [true]
-    },
+{
+    estudante: 'Lashana lynch',
+    turma: ['Zhenyi'],
+    curso: ['HTML e CSS'],
+    valor: [500.00],
+    nParcelas: [1],
+    desconto: [true],
+    parcelas: [500.00],
+    statusPay: [true]
+},
 ]
 
 function arredonadaParaCima(valor) {
@@ -245,10 +245,16 @@ function somarValorArray(arrayDeNumeros) {
     return soma
 }
 
+function testeParcelarCurso(parcelas){
+    console.log(carrinhoCursos)
+}
+
+
 function parelarCurso(parcela, curso, arrayDeValores) {
     let valorParcela = arredonadaParaCima(somarValorArray(arrayDeValores) / parcela)
     let valorTotal = somarValorArray(arrayDeValores)
-
+    let pluralCurso = 'O curso'
+    let pluraFicou = 'ficou'
 
     switch (arrayDeValores.length) {
         case 3:
@@ -259,12 +265,17 @@ function parelarCurso(parcela, curso, arrayDeValores) {
             break
     }
 
+    if (carrinhoCursos.length > 1) {
+        pluralCurso = 'Os cursos'
+        pluraFicou = 'ficaram'
+    }
+
     if (parcela <= 2) {
         valorTotal = valorTotal - somarValorArray(arrayDeValores) * 0.2
         valorParcela = arredonadaParaCima(valorTotal / parcela)
-        return [true, `O curso ${curso} ficou no valor total de R$ ${arredonadaParaCima(valorTotal)}. Em ${parcela}x de ${valorParcela} reais. Foi concedido mais um desconto de 20%, por conta do número de parcela ser menor que 3.`]
+        return `${pluralCurso} ${curso} ${pluraFicou} no valor total de R$ ${arredonadaParaCima(valorTotal)}. Em ${parcela}x de ${valorParcela} reais. Foi concedido mais um desconto de 20%, pois o número de parcelas são menores que 3.`
     } else {
-        return [false, `O curso ${curso} ficou no valor total de R$ ${arredonadaParaCima(valorTotal)}. Em ${parcela}x de ${valorParcela} reais.`]
+        return `${pluralCurso} ${curso} ${pluraFicou} no valor total de R$ ${arredonadaParaCima(valorTotal)}. Em ${parcela}x de ${valorParcela} reais.`
 
     }
 }
@@ -429,7 +440,7 @@ function relatorioEstudante(nomeEstudante) {
     return `Aluno: ${dadosEstudantes.estudante}\nTurma: ${dadosEstudantes.turma}\nCurso: ${dadosEstudantes.curso}\nValor Total: ${dadosEstudantes.valor}\nValor Parcela: ${dadosEstudantes.parcelas}\nNº Parcelas: ${dadosEstudantes.nParcelas}`
 }
 
-function imprimir(dados) {}
+function imprimir(dados) { }
 
 function criarCard(listaTurma) {
     if (document.getElementById('aluno-nao-encontrado')) {
@@ -534,26 +545,24 @@ function verificaItensCarrinho() {
 }
 
 
-function criaItemCarrinho(listaDeCursos) {
+function incluirItemNaLista(curso) {
 
     const carrinho = document.querySelector('.carrinho')
-    for (curso of listaDeCursos) {
-        const div = document.createElement('div')
-        div.setAttribute('class', 'item')
-        const p = document.createElement('p')
-        const imagem = document.createElement('img')
 
-        p.innerHTML = curso
-        imagem.setAttribute('src', './assets/img/cancelar_item_x.png')
-        imagem.setAttribute('onclick', '{removeItemCarrinho(event)}')
-        imagem.setAttribute('value', `${curso}`)
+    const div = document.createElement('div')
+    div.setAttribute('class', 'item')
+    const p = document.createElement('p')
+    const imagem = document.createElement('img')
 
-        div.appendChild(p)
-        div.appendChild(imagem)
+    p.innerHTML = curso
+    imagem.setAttribute('src', './assets/img/cancelar_item_x.png')
+    imagem.setAttribute('onclick', '{removeItemCarrinho(event)}')
+    imagem.setAttribute('value', `${curso}`)
 
-        carrinho.appendChild(div)
+    div.appendChild(p)
+    div.appendChild(imagem)
 
-    }
+    carrinho.appendChild(div)
 
 }
 
@@ -595,7 +604,7 @@ function exibeTelaAddCurso() {
 
             icon.setAttribute('src', './assets/img/bag-add-outline.svg')
             icon.setAttribute('value', `${dadosCurso[0].curso}`)
-            icon.setAttribute('onclick', '{mostraValor(event)}')
+            icon.setAttribute('onclick', '{eventoInserirItemCarrinho(event)}')
             btnComprar.appendChild(icon)
 
             itemCarrinho.appendChild(nomeCurso)
@@ -614,15 +623,14 @@ function exibeTelaAddCurso() {
     }
 }
 
-function mostraValor(event) {
-    event.preventDefault()
+function eventoInserirItemCarrinho(event) {
     const curso = event.target.attributes[1].value
-    criaItemCarrinho([curso])
-    carrinhoCursos.push({ curso: curso })
-
+    adicionarItemAoCarrinho(curso, buscarCurso)
+    incluirItemNaLista(curso)
 
     if (modificaStatusExibeTela(1)) {
         exibeTelaAddCurso(verificaItensCarrinho())
     }
+
     ativaDesativBtnAddCurso()
 }

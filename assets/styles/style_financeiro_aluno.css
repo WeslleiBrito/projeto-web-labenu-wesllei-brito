@@ -3,7 +3,7 @@ body {
     width: 98.785vw;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 8.56vh 100vh 42.24vh;
+    grid-template-rows: 8.56vh 80vh 42.24vh;
 }
 
 .container {
