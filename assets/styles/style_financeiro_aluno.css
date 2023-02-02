@@ -160,7 +160,7 @@ body {
     left: 25vw;
     top: 37.5vh;
     padding: 1vw;
-    width: 22vw;
+    width: 15vw;
     gap: 3vh;
     border-radius: 0.5em;
 }
@@ -172,12 +172,14 @@ body {
 
 #item-carrinho {
     display: grid;
-    height: 20vh;
+    height: 12vh;
+    width: 13vw;
     grid-template-rows: repeat(4, 1fr);
     border: 1px solid #0E0E0E;
     border-radius: 0.5em;
     padding: 1vw;
     align-content: space-around;
+    font-size: 0.7em;
 }
 
 #duracao-valor {
@@ -186,8 +188,8 @@ body {
 }
 
 ion-icon {
-    height: 4vh;
-    width: 4vh;
+    height: 3vh;
+    width: 3vh;
     color: #17774C;
     border-radius: 50%;
 }
@@ -199,7 +201,7 @@ ion-icon {
 }
 
 #div-btn-comprar>img {
-    width: 2vw;
-    height: 2vw;
+    width: 1.5vw;
+    height: 1.5vw;
     color: #17774C;
 }

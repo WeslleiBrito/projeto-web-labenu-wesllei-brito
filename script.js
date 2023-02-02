@@ -188,35 +188,34 @@ const turmasAbertas = verificarTurmasAbertas()
 
 const estutantes = [{
     estudante: 'Chris Evans',
-    turma: ['Hipátia'],
-    curso: ['Javascript'],
-    valor: [900.00],
-    nParcelas: [9],
-    desconto: [false],
-    parcelas: [100.00],
-    statusPay: [true]
+    turma: 'Hipátia',
+    curso: 'Javascript',
+    valor: 900.00,
+    nParcelas: 9,
+    desconto: false,
+    parcelas: 100.00,
 },
 
 {
     estudante: 'Halle Berry',
-    turma: ['Burnel'],
-    curso: ['APIsRest'],
-    valor: [2000.00],
-    nParcelas: [4],
-    desconto: [false],
-    parcelas: [500.00],
-    statusPay: [true]
+    turma: 'Burnel',
+    curso: 'APIsRest',
+    valor: 2000.00,
+    nParcelas: 4,
+    desconto: false,
+    parcelas: 500.00,
+    statusPay: true
 },
 
 {
     estudante: 'Lashana lynch',
-    turma: ['Zhenyi'],
-    curso: ['HTML e CSS'],
-    valor: [500.00],
-    nParcelas: [1],
-    desconto: [true],
-    parcelas: [500.00],
-    statusPay: [true]
+    turma: 'Zhenyi',
+    curso: 'HTML e CSS',
+    valor: 500.00,
+    nParcelas: 1,
+    desconto: true,
+    parcelas: 500.00,
+    statusPay: true
 },
 ]
 
@@ -245,16 +244,32 @@ function somarValorArray(arrayDeNumeros) {
     return soma
 }
 
-function testeParcelarCurso(parcelas){
-    console.log(carrinhoCursos)
+function resumoParcelamento(event) {
+    event.preventDefault()
+    arrayDeValores = carrinhoCursos.map(objeto => (objeto.valor))
+    arrayCursos = carrinhoCursos.map(objeto => (objeto.curso))
+    parcelas = document.getElementById('n-parcelas').value
+    if(parcelas){
+        parcelas = parseInt(parcelas)
+
+    }
+
+    const retorno = parcelarCurso(parcelas, arrayCursos, arrayDeValores)
+    const mensagemTela = document.getElementById('resumo-valor-compra') 
+    mensagemTela.innerHTML = retorno
+    console.log(retorno)
+
+    
 }
 
 
-function parelarCurso(parcela, curso, arrayDeValores) {
+function parcelarCurso(parcela, cursos, arrayDeValores) {
     let valorParcela = arredonadaParaCima(somarValorArray(arrayDeValores) / parcela)
     let valorTotal = somarValorArray(arrayDeValores)
     let pluralCurso = 'O curso'
     let pluraFicou = 'ficou'
+
+    cursos = String(cursos).replaceAll(',', ', ')
 
     switch (arrayDeValores.length) {
         case 3:
@@ -273,9 +288,9 @@ function parelarCurso(parcela, curso, arrayDeValores) {
     if (parcela <= 2) {
         valorTotal = valorTotal - somarValorArray(arrayDeValores) * 0.2
         valorParcela = arredonadaParaCima(valorTotal / parcela)
-        return `${pluralCurso} ${curso} ${pluraFicou} no valor total de R$ ${arredonadaParaCima(valorTotal)}. Em ${parcela}x de ${valorParcela} reais. Foi concedido mais um desconto de 20%, pois o número de parcelas são menores que 3.`
+        return `${pluralCurso} ${cursos} ${pluraFicou} no valor total de R$ ${arredonadaParaCima(valorTotal)}. Em ${parcela}x de ${valorParcela}. Foi concedido mais um desconto de 20%, pois o número de parcelas são menores que 3.`
     } else {
-        return `${pluralCurso} ${curso} ${pluraFicou} no valor total de R$ ${arredonadaParaCima(valorTotal)}. Em ${parcela}x de ${valorParcela} reais.`
+        return `${pluralCurso} ${cursos} ${pluraFicou} no valor total de R$ ${arredonadaParaCima(valorTotal)}. Em ${parcela}x de ${valorParcela} reais.`
 
     }
 }
@@ -350,7 +365,7 @@ function matricular(event) {
             curso: curso.value,
             valor: buscarCurso(curso.value)[0].valor,
             nParcelas: Number(numeroDeParcelas.value),
-            desconto: parelarCurso(Number(numeroDeParcelas.value), curso.value, [curso.value])[0],
+            desconto: parcelarCurso(Number(numeroDeParcelas.value), curso.value, [curso.value])[0],
             parcelas: arredonadaParaCima(buscarCurso(curso.value)[0].valor / Number(numeroDeParcelas.value))
         })
 
@@ -387,7 +402,7 @@ function matricular(event) {
 
         retorno = `Os campos ${strCampos}, não foram preenchidos.`
     }
-
+    console.log(retorno)
     confirmarMatricula(retorno)
 
 }
@@ -566,6 +581,9 @@ function incluirItemNaLista(curso) {
 
 }
 
+function fecharTelaCarrinho(){
+    document.getElementById('container-add').remove()
+}
 
 function exibeTelaAddCurso() {
     if (carrinhoCursos.length < 3 && exibeAutomaticaTelaAddCurso < 3) {
@@ -617,6 +635,12 @@ function exibeTelaAddCurso() {
 
         }
 
+        const btnFechar = document.createElement('img')
+        btnFechar.setAttribute('src', './assets/img/btn-fechar.svg')
+        btnFechar.setAttribute('id', 'btn-fechar')
+        btnFechar.setAttribute('onclick', '{fecharTelaCarrinho()}')
+
+        containerCarrinho.appendChild(btnFechar)
         const posicao = document.querySelector('.financeiro button')
 
         posicao.insertAdjacentElement('afterend', containerCarrinho)

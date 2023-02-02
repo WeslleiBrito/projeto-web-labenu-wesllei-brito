@@ -51,9 +51,9 @@
                 <article class="menuAddCurso"></article>
                 <label for="n-parcelas" class="titulo-padrao">Número de parcelas</label>
                 <input type="number" name="n-parcelas" id="n-parcelas" class="input-parcelas" min="1" max="10">
-                <button id="btn-ver-valor">Ver valor</button>
+                <button id="btn-ver-valor" onclick="{resumoParcelamento(event)}">Ver valor</button>
                 <p class="titulo">Valor</p>
-                <p id="resumo-valor-compra">Desconto de 20%. Parcelas de 2x de R$1880.00</p>
+                <p id="resumo-valor-compra"></p>
             </section>
 
             <section id="relatorio-aluno">
