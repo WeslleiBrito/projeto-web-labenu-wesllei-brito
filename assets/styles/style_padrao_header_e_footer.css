@@ -51,22 +51,6 @@ header>nav>ul {
     font-size: 0.8em;
 }
 
-#carrinho-curso {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    background-color: rgba(192, 181, 181, 0.35);
-    border-radius: 50%;
-}
-
-#imagem-carrinho-curso {
-    width: 1.5rem;
-    height: 1.5rem;
-    display: block;
-}
-
 
 /* ------------------------------------------ FOOTER --------------------------------------------- */
 
@@ -141,4 +125,13 @@ footer>figure {
     gap: 0.15rem;
     font-size: 0.5em;
     font-weight: 400;
+}
+
+
+/* --------------------------------------------- Conteúdo central ADM -------------------------------------- */
+
+.conteudo-central {
+    height: 80vh;
+    display: flex;
+    background-color: #F6C34A;
 }

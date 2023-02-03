@@ -15,8 +15,8 @@ main {
 
 .contato {
     background-color: #fbfbfb;
-    height: 80%;
-    width: 28vw;
+    height: 85%;
+    width: 25vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,7 +33,7 @@ main {
     align-self: flex-start;
     margin-left: 13%;
     margin-bottom: 0.5vh;
-    font-size: 0.6em;
+    font-size: 0.8em;
 }
 
 .contato>input {
@@ -41,15 +41,23 @@ main {
     border: 1px solid #0E0E0E;
     border-radius: 0.3em;
     height: 5.5vh;
+    padding: 0.5vw;
+    outline: none;
+    font-size: 0.8em;
 }
 
-#mensagem {
-    height: 15vh;
-    margin-bottom: 1.5vh;
+textarea {
+    width: 75%;
+    border: 1px solid #0E0E0E;
+    border-radius: 0.3em;
+    padding: 0.5vw;
+    outline: none;
+    font-size: 0.8em;
+    margin-bottom: 5vh;
 }
 
 #enviar {
-    font-size: 0.6em;
+    font-size: 0.8em;
     height: 7.5vh;
     background-color: #F6C34A;
     border: none;

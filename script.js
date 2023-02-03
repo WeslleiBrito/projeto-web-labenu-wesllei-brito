@@ -32,25 +32,25 @@ function ativaDesativBtnAddCurso() {
 }
 
 const cursos = [{
-    curso: 'HTML e CSS',
-    descricao: 'O curso é voltado para o desenvolvimento front-end.',
-    duracao: '1 mês',
-    valor: 500.00,
-},
+        curso: 'HTML e CSS',
+        descricao: 'O curso é voltado para o desenvolvimento front-end.',
+        duracao: '1 mês',
+        valor: 500.00,
+    },
 
-{
-    curso: 'JavaScript',
-    descricao: 'Foco no back-end.',
-    duracao: '2 mês',
-    valor: 900.00
-},
+    {
+        curso: 'JavaScript',
+        descricao: 'Foco no back-end.',
+        duracao: '2 mês',
+        valor: 900.00
+    },
 
-{
-    curso: 'APIs REST',
-    descricao: 'Ferramenta para ligação entre sistemas.',
-    duracao: '6 meses',
-    valor: 2000.00
-}
+    {
+        curso: 'APIs REST',
+        descricao: 'Ferramenta para ligação entre sistemas.',
+        duracao: '6 meses',
+        valor: 2000.00
+    }
 ]
 
 function listarCursos() {
@@ -75,84 +75,84 @@ function listarCursos() {
 }
 
 const turmas = [{
-    turma: 'Hipátia',
-    curso: 'JavaScript',
-    inicio: '30/11/2022',
-    termino: '30/01/2023',
-    numeroDeAlunos: 150,
-    periodo: 'Noturno',
-    concluido: false
-},
+        turma: 'Hipátia',
+        curso: 'JavaScript',
+        inicio: '30/11/2022',
+        termino: '30/01/2023',
+        numeroDeAlunos: 150,
+        periodo: 'Noturno',
+        concluido: false
+    },
 
-{
-    turma: 'Sibyla',
-    curso: 'JavaScript',
-    inicio: '30/10/2022',
-    termino: '30/12/2022',
-    numeroDeAlunos: 200,
-    periodo: 'Integral',
-    concluido: false
-},
+    {
+        turma: 'Sibyla',
+        curso: 'JavaScript',
+        inicio: '30/10/2022',
+        termino: '30/12/2022',
+        numeroDeAlunos: 200,
+        periodo: 'Integral',
+        concluido: false
+    },
 
-{
-    turma: 'Curie',
-    curso: 'HTML e CSS',
-    inicio: '15/09/2022',
-    termino: '15/10/2022',
-    numeroDeAlunos: 180,
-    periodo: 'Noturno',
-    concluido: true
-},
+    {
+        turma: 'Curie',
+        curso: 'HTML e CSS',
+        inicio: '15/09/2022',
+        termino: '15/10/2022',
+        numeroDeAlunos: 180,
+        periodo: 'Noturno',
+        concluido: true
+    },
 
-{
-    turma: 'Zhenyi',
-    curso: 'HTML e CSS',
-    inicio: '01/11/2022',
-    termino: '01/01/2023',
-    numeroDeAlunos: 80,
-    periodo: 'Integral',
-    concluido: false
-},
+    {
+        turma: 'Zhenyi',
+        curso: 'HTML e CSS',
+        inicio: '01/11/2022',
+        termino: '01/01/2023',
+        numeroDeAlunos: 80,
+        periodo: 'Integral',
+        concluido: false
+    },
 
-{
-    turma: 'Clarke',
-    curso: 'HTML e CSS',
-    inicio: '04/07/2022',
-    termino: '04/09/2022',
-    numeroDeAlunos: 200,
-    periodo: 'Noturno',
-    concluido: true
-},
+    {
+        turma: 'Clarke',
+        curso: 'HTML e CSS',
+        inicio: '04/07/2022',
+        termino: '04/09/2022',
+        numeroDeAlunos: 200,
+        periodo: 'Noturno',
+        concluido: true
+    },
 
-{
-    turma: 'Blackwell',
-    curso: 'APIs REST',
-    inicio: '20/03/2022',
-    termino: '20/06/2022',
-    numeroDeAlunos: 100,
-    periodo: 'Noturno',
-    concluido: true
-},
+    {
+        turma: 'Blackwell',
+        curso: 'APIs REST',
+        inicio: '20/03/2022',
+        termino: '20/06/2022',
+        numeroDeAlunos: 100,
+        periodo: 'Noturno',
+        concluido: true
+    },
 
-{
-    turma: 'Elion',
-    curso: 'APIs REST',
-    inicio: '12/01/2022',
-    termino: '12/06/2022',
-    numeroDeAlunos: 200,
-    periodo: 'Noturno',
-    concluido: true
-},
+    {
+        turma: 'Elion',
+        curso: 'APIs REST',
+        inicio: '12/01/2022',
+        termino: '12/06/2022',
+        numeroDeAlunos: 200,
+        periodo: 'Noturno',
+        concluido: true
+    },
 
-{
-    turma: 'Burnell',
-    curso: 'APIs REST',
-    inicio: '18/10/2022',
-    termino: '18/04/2023',
-    numeroDeAlunos: 90,
-    periodo: 'Integral',
-    concluido: false
-},
+    {
+        turma: 'Burnell',
+        curso: 'APIs REST',
+        inicio: '18/10/2022',
+        termino: '18/04/2023',
+        numeroDeAlunos: 90,
+        periodo: 'Integral',
+        concluido: false
+    },
 ]
 
 function listarTurmas() {
@@ -187,36 +187,36 @@ const turmasAbertas = verificarTurmasAbertas()
 
 
 const estutantes = [{
-    estudante: 'Chris Evans',
-    turma: 'Hipátia',
-    curso: 'Javascript',
-    valor: 900.00,
-    nParcelas: 9,
-    desconto: false,
-    parcelas: 100.00,
-},
+        estudante: 'Chris Evans',
+        turma: 'Hipátia',
+        curso: 'Javascript',
+        valor: 900.00,
+        nParcelas: 9,
+        desconto: false,
+        parcelas: 100.00,
+    },
 
-{
-    estudante: 'Halle Berry',
-    turma: 'Burnel',
-    curso: 'APIsRest',
-    valor: 2000.00,
-    nParcelas: 4,
-    desconto: false,
-    parcelas: 500.00,
-    statusPay: true
-},
+    {
+        estudante: 'Halle Berry',
+        turma: 'Burnel',
+        curso: 'APIsRest',
+        valor: 2000.00,
+        nParcelas: 4,
+        desconto: false,
+        parcelas: 500.00,
+        statusPay: true
+    },
 
-{
-    estudante: 'Lashana lynch',
-    turma: 'Zhenyi',
-    curso: 'HTML e CSS',
-    valor: 500.00,
-    nParcelas: 1,
-    desconto: true,
-    parcelas: 500.00,
-    statusPay: true
-},
+    {
+        estudante: 'Lashana lynch',
+        turma: 'Zhenyi',
+        curso: 'HTML e CSS',
+        valor: 500.00,
+        nParcelas: 1,
+        desconto: true,
+        parcelas: 500.00,
+        statusPay: true
+    },
 ]
 
 function arredonadaParaCima(valor) {
@@ -249,17 +249,17 @@ function resumoParcelamento(event) {
     arrayDeValores = carrinhoCursos.map(objeto => (objeto.valor))
     arrayCursos = carrinhoCursos.map(objeto => (objeto.curso))
     parcelas = document.getElementById('n-parcelas').value
-    if(parcelas){
+    if (parcelas) {
         parcelas = parseInt(parcelas)
 
     }
 
     const retorno = parcelarCurso(parcelas, arrayCursos, arrayDeValores)
-    const mensagemTela = document.getElementById('resumo-valor-compra') 
+    const mensagemTela = document.getElementById('resumo-valor-compra')
     mensagemTela.innerHTML = retorno
     console.log(retorno)
 
-    
+
 }
 
 
@@ -336,30 +336,30 @@ function buscarEstudante(nomeEstudante) {
     return dadosEstudantes ? dadosEstudantes : 'Aluno não encontrado'
 }
 
-function exibeBuscarEstudante(event){
+function exibeBuscarEstudante(event) {
     event.preventDefault()
     const nome = document.getElementById('nome').value
-    
-    if(nome){
-       const resultadoPesquisa = buscarEstudante(nome)
-       if(typeof resultadoPesquisa === 'object'){
-        const aluno = document.getElementById('aluno')
-        aluno.innerHTML = `Aluno: ${resultadoPesquisa.estudante}`
-        const turma = document.getElementById('turma')
-        turma.innerHTML = `Turma: ${resultadoPesquisa.turma}`
-        const curso = document.getElementById('curso')
-        curso.innerHTML = `Curso: ${resultadoPesquisa.curso}`
-        const valor = document.getElementById('valor-total')
-        valor.innerHTML = `Valor: R$${resultadoPesquisa.valor}`
-        const parcelas = document.getElementById('valor-parcela')
-        parcelas.innerHTML = `Parcelas: R$${resultadoPesquisa.parcelas}`
-        const nparcelas = document.getElementById('numero-parcelas')
-        nparcelas.innerHTML = `Parcelas: ${resultadoPesquisa.nParcelas}`
-       }else{
-        document.getElementById('aluno').innerHTML = resultadoPesquisa
-       }
-       
-    }else{
+
+    if (nome) {
+        const resultadoPesquisa = buscarEstudante(nome)
+        if (typeof resultadoPesquisa === 'object') {
+            const aluno = document.getElementById('aluno')
+            aluno.innerHTML = `Aluno: ${resultadoPesquisa.estudante}`
+            const turma = document.getElementById('turma')
+            turma.innerHTML = `Turma: ${resultadoPesquisa.turma}`
+            const curso = document.getElementById('curso')
+            curso.innerHTML = `Curso: ${resultadoPesquisa.curso}`
+            const valor = document.getElementById('valor-total')
+            valor.innerHTML = `Valor: R$${resultadoPesquisa.valor}`
+            const parcelas = document.getElementById('valor-parcela')
+            parcelas.innerHTML = `Parcelas: R$${resultadoPesquisa.parcelas}`
+            const nparcelas = document.getElementById('numero-parcelas')
+            nparcelas.innerHTML = `Parcelas: ${resultadoPesquisa.nParcelas}`
+        } else {
+            document.getElementById('aluno').innerHTML = resultadoPesquisa
+        }
+
+    } else {
         alert('Informe o nome do aluno que deseja localizar no campo de busca.')
     }
 
@@ -607,7 +607,7 @@ function incluirItemNaLista(curso) {
 
 }
 
-function fecharTelaCarrinho(){
+function fecharTelaCarrinho() {
     document.getElementById('container-add').remove()
     exibeAutomaticaTelaAddCurso = 3
 }
@@ -692,14 +692,14 @@ function renderizaTurmas() {
         document.querySelector('.compra').remove()
     }
 
-    if(document.querySelector('.area-matricula')){
+    if (document.querySelector('.area-matricula')) {
         document.querySelector('.area-matricula').remove()
     }
 
     if (document.querySelector('.cursos')) {
         document.querySelector('.cursos').remove()
     }
-    
+
     const caminhoStyle = document.getElementById('style')
     caminhoStyle.setAttribute('href', './assets/styles/style_turmas.css')
 
@@ -743,8 +743,8 @@ function renderizaFinanceiroAluno() {
     if (document.querySelector('.cursos')) {
         document.querySelector('.cursos').remove()
     }
-    
-    if(document.querySelector('.area-matricula')){
+
+    if (document.querySelector('.area-matricula')) {
         document.querySelector('.area-matricula').remove()
     }
 
@@ -817,10 +817,10 @@ function renderizaFinanceiroAluno() {
     sectionCompra.appendChild(sectionFinanceiro)
     sectionCompra.appendChild(renderizaRelatorioAluno())
     container.appendChild(sectionCompra)
- 
+
 }
 
-function renderizaRelatorioAluno(){
+function renderizaRelatorioAluno() {
 
     const sectionRelatorioAluno = document.createElement('section')
     sectionRelatorioAluno.setAttribute('id', 'relatorio-aluno')
@@ -834,7 +834,7 @@ function renderizaRelatorioAluno(){
     lableNome.setAttribute('for', 'nome')
     lableNome.setAttribute('class', 'titulo-padrao')
 
-    const inputNome =document.createElement('input')
+    const inputNome = document.createElement('input')
     inputNome.setAttribute('id', 'nome')
     inputNome.setAttribute('type', 'text')
     inputNome.setAttribute('name', 'nome')
@@ -843,7 +843,7 @@ function renderizaRelatorioAluno(){
     botaoBuscar.setAttribute('id', 'btn-buscar')
     botaoBuscar.setAttribute('onclick', '{exibeBuscarEstudante(event)}')
     botaoBuscar.innerHTML = 'Buscar'
-    
+
 
     const ulRelatorio = document.createElement('ul')
     ulRelatorio.setAttribute('class', 'relatorio')
@@ -875,7 +875,7 @@ function renderizaRelatorioAluno(){
     return sectionRelatorioAluno
 }
 
-function renderizaMatricula(){
+function renderizaMatricula() {
     if (document.querySelector('.compra')) {
         document.querySelector('.compra').remove()
     }
@@ -884,7 +884,7 @@ function renderizaMatricula(){
         document.querySelector('.cursos').remove()
     }
 
-    if(document.querySelector('.area-matricula')){
+    if (document.querySelector('.area-matricula')) {
         document.querySelector('.area-matricula').remove()
     }
 
@@ -951,7 +951,7 @@ function renderizaMatricula(){
 
     const listaForm = [lableNome, inputNome, lableCurso, selectCurso, lableTurmas, selectTurma, labelNumeroParcelas, inputNumeroParcelas, botaoMatricular]
 
-    for(elemento of listaForm){
+    for (elemento of listaForm) {
         form.appendChild(elemento)
     }
 
@@ -963,7 +963,7 @@ function renderizaMatricula(){
 
     const divTituloImagem = document.createElement('div')
     divTituloImagem.setAttribute('class', 'titulo-imagem')
-    
+
     const pTitulo = document.createElement('p')
     pTitulo.setAttribute('id', 'titulo')
 

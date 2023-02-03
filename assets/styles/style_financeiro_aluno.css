@@ -14,7 +14,7 @@ body {
 .menu-lateral {
     color: #FFFFFF;
     background-color: #0E0E0E;
-    height: 100vh;
+    height: 80vh;
     width: 20vw;
 }
 
@@ -153,16 +153,17 @@ body {
 }
 
 #container-add {
-    background-color: #FFF0F5;
+    background-color: #318CE7;
     position: absolute;
     display: flex;
     flex-direction: column;
     left: 25vw;
     top: 37.5vh;
     padding: 1vw;
-    width: 22vw;
-    gap: 3vh;
+    width: 17vw;
+    gap: 1vh;
     border-radius: 0.5em;
+    align-items: center;
 }
 
 #container-add p {
@@ -172,24 +173,20 @@ body {
 
 #item-carrinho {
     display: grid;
-    height: 20vh;
+    height: 15vh;
+    width: 16vw;
     grid-template-rows: repeat(4, 1fr);
-    border: 1px solid #0E0E0E;
-    border-radius: 0.5em;
+    border-bottom: 3px solid #000000;
     padding: 1vw;
     align-content: space-around;
+    font-size: 0.9em;
+    font-weight: 900;
+    color: #3b38ff;
 }
 
 #duracao-valor {
     display: flex;
     justify-content: space-between;
-}
-
-ion-icon {
-    height: 4vh;
-    width: 4vh;
-    color: #17774C;
-    border-radius: 50%;
 }
 
 #div-btn-comprar {
@@ -199,7 +196,12 @@ ion-icon {
 }
 
 #div-btn-comprar>img {
+    width: 1.5vw;
+    height: 1.5vw;
+    color: #17774C;
+}
+
+#btn-fechar {
     width: 2vw;
     height: 2vw;
-    color: #17774C;
 }
