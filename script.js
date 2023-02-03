@@ -331,9 +331,38 @@ function buscaBotao() {
 }
 
 function buscarEstudante(nomeEstudante) {
-    const dadosEstudantes = estutantes.filter((objeto) => { return objeto.estudante.includes(nomeEstudante) })[0]
+    const dadosEstudantes = estutantes.find((objeto) => { return objeto.estudante.toLocaleLowerCase().includes(nomeEstudante.toLocaleLowerCase()) })
 
     return dadosEstudantes ? dadosEstudantes : 'Aluno não encontrado'
+}
+
+function exibeBuscarEstudante(event){
+    event.preventDefault()
+    const nome = document.getElementById('nome').value
+    
+    if(nome){
+       const resultadoPesquisa = buscarEstudante(nome)
+       if(typeof resultadoPesquisa === 'object'){
+        const aluno = document.getElementById('aluno')
+        aluno.innerHTML = `Aluno: ${resultadoPesquisa.estudante}`
+        const turma = document.getElementById('turma')
+        turma.innerHTML = `Turma: ${resultadoPesquisa.turma}`
+        const curso = document.getElementById('curso')
+        curso.innerHTML = `Curso: ${resultadoPesquisa.curso}`
+        const valor = document.getElementById('valor-total')
+        valor.innerHTML = `Valor: R$${resultadoPesquisa.valor}`
+        const parcelas = document.getElementById('valor-parcela')
+        parcelas.innerHTML = `Parcelas: R$${resultadoPesquisa.parcelas}`
+        const nparcelas = document.getElementById('numero-parcelas')
+        nparcelas.innerHTML = `Parcelas: ${resultadoPesquisa.nParcelas}`
+       }else{
+        document.getElementById('aluno').innerHTML = resultadoPesquisa
+       }
+       
+    }else{
+        alert('Informe o nome do aluno que deseja localizar no campo de busca.')
+    }
+
 }
 
 function matricular(event) {
@@ -365,7 +394,7 @@ function matricular(event) {
             curso: curso.value,
             valor: buscarCurso(curso.value)[0].valor,
             nParcelas: Number(numeroDeParcelas.value),
-            desconto: parcelarCurso(Number(numeroDeParcelas.value), curso.value, [curso.value])[0],
+            desconto: Number(numeroDeParcelas.value) < 3 ? 'Sim' : 'Não',
             parcelas: arredonadaParaCima(buscarCurso(curso.value)[0].valor / Number(numeroDeParcelas.value))
         })
 
@@ -454,8 +483,6 @@ function relatorioEstudante(nomeEstudante) {
 
     return `Aluno: ${dadosEstudantes.estudante}\nTurma: ${dadosEstudantes.turma}\nCurso: ${dadosEstudantes.curso}\nValor Total: ${dadosEstudantes.valor}\nValor Parcela: ${dadosEstudantes.parcelas}\nNº Parcelas: ${dadosEstudantes.nParcelas}`
 }
-
-function imprimir(dados) { }
 
 function criarCard(listaTurma) {
     if (document.getElementById('aluno-nao-encontrado')) {
@@ -559,7 +586,6 @@ function verificaItensCarrinho() {
     return novaLista
 }
 
-
 function incluirItemNaLista(curso) {
 
     const carrinho = document.querySelector('.carrinho')
@@ -583,6 +609,7 @@ function incluirItemNaLista(curso) {
 
 function fecharTelaCarrinho(){
     document.getElementById('container-add').remove()
+    exibeAutomaticaTelaAddCurso = 3
 }
 
 function exibeTelaAddCurso() {
@@ -657,4 +684,312 @@ function eventoInserirItemCarrinho(event) {
     }
 
     ativaDesativBtnAddCurso()
+}
+
+function renderizaTurmas() {
+
+    if (document.querySelector('.compra')) {
+        document.querySelector('.compra').remove()
+    }
+
+    const caminhoStyle = document.getElementById('style')
+    caminhoStyle.setAttribute('href', './assets/styles/style_turmas.css')
+
+    const container = document.querySelector('.container')
+    const sectionCurso = document.createElement('section')
+    sectionCurso.setAttribute('class', 'cursos')
+
+    const divPesquisar = document.createElement('div')
+    divPesquisar.setAttribute('class', 'pesquisar')
+
+    const inputPesquisar = document.createElement('input')
+    inputPesquisar.setAttribute('type', 'text')
+    inputPesquisar.setAttribute('name', 'caixa-busca')
+    inputPesquisar.setAttribute('id', 'caixa-busca')
+    inputPesquisar.setAttribute('placeholder', 'Digite o nome da turma!')
+    inputPesquisar.setAttribute('onkeyup', '{buscaAutomatica()}')
+
+    const botao = document.createElement('button')
+    botao.innerHTML = 'Buscar'
+    botao.setAttribute('id', 'btn-buscar')
+    botao.setAttribute('onclick', '{buscaBotao()}')
+
+    divPesquisar.appendChild(inputPesquisar)
+    divPesquisar.appendChild(botao)
+    sectionCurso.appendChild(divPesquisar)
+    container.appendChild(sectionCurso)
+
+    criarCard(buscarTurma())
+
+}
+
+function renderizaFinanceiroAluno() {
+
+    const caminhoStyle = document.getElementById('style')
+    caminhoStyle.setAttribute('href', './assets/styles/style_financeiro_aluno.css')
+
+    if (document.querySelector('.compra')) {
+        document.querySelector('.compra').remove()
+    }
+
+    if (document.querySelector('.cursos')) {
+        document.querySelector('.cursos').remove()
+    }
+    
+    if(document.querySelector('.area-matricula')){
+        document.querySelector('.area-matricula').remove()
+    }
+
+
+    const container = document.querySelector('.container')
+    const sectionCompra = document.createElement('section')
+    sectionCompra.setAttribute('class', 'compra')
+
+    const sectionFinanceiro = document.createElement('section')
+    sectionFinanceiro.setAttribute('class', 'financeiro')
+    const pTitulo = document.createElement('p')
+    const pTituloPadrao = document.createElement('p')
+
+    pTitulo.setAttribute('class', 'titulo')
+    pTitulo.innerHTML = 'Financeiro'
+
+    pTituloPadrao.setAttribute('class', 'titulo-padrao')
+    pTituloPadrao.innerHTML = 'Curso'
+
+    const divCarrinho = document.createElement('div')
+    divCarrinho.setAttribute('class', 'carrinho')
+
+    const botaoAddCurso = document.createElement('button')
+    botaoAddCurso.setAttribute('id', 'add-curso')
+
+    botaoAddCurso.setAttribute('onclick', '{clickAtivaTela(), exibeTelaAddCurso()}')
+    botaoAddCurso.innerHTML = 'Adicionar outro curso'
+
+    const lableAddNParcela = document.createElement('label')
+    lableAddNParcela.setAttribute('for', 'add-curso')
+    lableAddNParcela.setAttribute('class', 'titulo-padrao')
+    lableAddNParcela.innerHTML = 'Número de parcelas'
+
+    const inputNParcelas = document.createElement('input')
+    inputNParcelas.setAttribute('type', 'number')
+    inputNParcelas.setAttribute('name', 'n-parcelas')
+    inputNParcelas.setAttribute('id', 'n-parcelas')
+    inputNParcelas.setAttribute('class', 'input-parcelas')
+    inputNParcelas.setAttribute('min', '1')
+    inputNParcelas.setAttribute('max', '10')
+
+    const botaoVerValor = document.createElement('button')
+    botaoVerValor.setAttribute('id', 'btn-ver-valor')
+    botaoVerValor.setAttribute('onclick', '{resumoParcelamento(event)}')
+
+    botaoVerValor.innerHTML = 'Ver valor'
+
+    const pValor = document.createElement('p')
+    pValor.innerHTML = 'Valor'
+
+    const pResumo = document.createElement('p')
+    pResumo.setAttribute('id', 'resumo-valor-compra')
+
+    const listaDeElementos = [
+        pTitulo,
+        pTituloPadrao,
+        divCarrinho,
+        botaoAddCurso,
+        lableAddNParcela,
+        inputNParcelas,
+        botaoVerValor,
+        pValor,
+        pResumo
+    ]
+
+    for (let elemento of listaDeElementos) {
+        sectionFinanceiro.appendChild(elemento)
+    }
+
+    sectionCompra.appendChild(sectionFinanceiro)
+    sectionCompra.appendChild(renderizaRelatorioAluno())
+    container.appendChild(sectionCompra)
+ 
+}
+
+function renderizaRelatorioAluno(){
+
+    const sectionRelatorioAluno = document.createElement('section')
+    sectionRelatorioAluno.setAttribute('id', 'relatorio-aluno')
+
+    const pTitulo = document.createElement('p')
+    pTitulo.setAttribute('class', 'titulo')
+    pTitulo.innerHTML = 'Relatório Aluno'
+
+    const lableNome = document.createElement('label')
+    lableNome.innerHTML = 'Nome'
+    lableNome.setAttribute('for', 'nome')
+    lableNome.setAttribute('class', 'titulo-padrao')
+
+    const inputNome =document.createElement('input')
+    inputNome.setAttribute('id', 'nome')
+    inputNome.setAttribute('type', 'text')
+    inputNome.setAttribute('name', 'nome')
+    const botaoBuscar = document.createElement('button')
+
+    botaoBuscar.setAttribute('id', 'btn-buscar')
+    botaoBuscar.setAttribute('onclick', '{exibeBuscarEstudante(event)}')
+    botaoBuscar.innerHTML = 'Buscar'
+    
+
+    const ulRelatorio = document.createElement('ul')
+    ulRelatorio.setAttribute('class', 'relatorio')
+    const liAluno = document.createElement('li')
+    liAluno.setAttribute('id', 'aluno')
+    const liTurma = document.createElement('li')
+    liTurma.setAttribute('id', 'turma')
+    const liCurso = document.createElement('li')
+    liCurso.setAttribute('id', 'curso')
+    const liValorTotal = document.createElement('li')
+    liValorTotal.setAttribute('id', 'valor-total')
+    const liValorParcela = document.createElement('li')
+    liValorParcela.setAttribute('id', 'valor-parcela')
+    const liNumeroParcela = document.createElement('li')
+    liNumeroParcela.setAttribute('id', 'numero-parcelas')
+
+    const listaLi = [liAluno, liTurma, liCurso, liValorTotal, liValorParcela, liNumeroParcela]
+
+    for (const li of listaLi) {
+        ulRelatorio.appendChild(li)
+    }
+
+    const listaRelatorioAluno = [pTitulo, lableNome, inputNome, botaoBuscar, ulRelatorio]
+
+    for (const elemento of listaRelatorioAluno) {
+        sectionRelatorioAluno.appendChild(elemento)
+    }
+
+    return sectionRelatorioAluno
+}
+
+function renderizaMatricula(){
+    if (document.querySelector('.compra')) {
+        document.querySelector('.compra').remove()
+    }
+
+    if (document.querySelector('.cursos')) {
+        document.querySelector('.cursos').remove()
+    }
+
+    if(document.querySelector('.area-matricula')){
+        document.querySelector('.area-matricula').remove()
+    }
+
+    const caminhoStyle = document.getElementById('style')
+    caminhoStyle.setAttribute('href', './assets/styles/style_matricula.css')
+
+    const container = document.querySelector('.container')
+    const sectionAreaMatricula = document.createElement('section')
+    sectionAreaMatricula.setAttribute('class', 'area-matricula')
+
+    const divMatricula = document.createElement('div')
+    divMatricula.setAttribute('class', 'matricula')
+
+    const pMatricula = document.createElement('p')
+    pMatricula.innerHTML = 'Matrícula'
+
+    const form = document.createElement('form')
+    form.setAttribute('action', '#')
+
+    const lableNome = document.createElement('label')
+    lableNome.setAttribute('for', 'nome')
+    lableNome.innerHTML = 'Nome'
+
+    const inputNome = document.createElement('input')
+    inputNome.setAttribute('type', 'text')
+    inputNome.setAttribute('name', 'nome')
+    inputNome.setAttribute('id', 'nome')
+
+    const lableCurso = document.createElement('label')
+    lableCurso.setAttribute('for', 'curso')
+    lableCurso.innerHTML = 'Curso'
+
+    const selectCurso = document.createElement('select')
+    selectCurso.setAttribute('name', 'curso')
+    selectCurso.setAttribute('id', 'cursos-selecao')
+
+    const optionSelecione = document.createElement('option')
+    optionSelecione.setAttribute('name', 'curso')
+    optionSelecione.disabled = true
+
+    selectCurso.appendChild(optionSelecione)
+
+    const lableTurmas = document.createElement('label')
+    lableTurmas.setAttribute('for', 'turmas')
+    lableTurmas.innerHTML = 'Turma'
+
+    const selectTurma = document.createElement('select')
+    selectTurma.setAttribute('id', 'turmas')
+    selectTurma.setAttribute('name', 'turma')
+
+    const labelNumeroParcelas = document.createElement('label')
+    labelNumeroParcelas.setAttribute('for', 'numero-de-parcelas')
+    labelNumeroParcelas.innerHTML = 'Número de parcelas'
+
+    const inputNumeroParcelas = document.createElement('input')
+    inputNumeroParcelas.setAttribute('type', 'text')
+    inputNumeroParcelas.setAttribute('name', 'numero-de-parcelas')
+    inputNumeroParcelas.setAttribute('id', 'numero-de-parcelas')
+
+    const botaoMatricular = document.createElement('button')
+    botaoMatricular.setAttribute('id', 'btn-matricular')
+    botaoMatricular.setAttribute('onclick', '{matricular(event)}')
+    botaoMatricular.innerHTML = 'Matricular aluno'
+
+    const listaForm = [lableNome, inputNome, lableCurso, selectCurso, lableTurmas, selectTurma, labelNumeroParcelas, inputNumeroParcelas, botaoMatricular]
+
+    for(elemento of listaForm){
+        form.appendChild(elemento)
+    }
+
+    divMatricula.appendChild(pMatricula)
+    divMatricula.appendChild(form)
+
+    const divStatusMatricula = document.createElement('div')
+    divStatusMatricula.setAttribute('class', 'status-matricula')
+
+    const divTituloImagem = document.createElement('div')
+    divTituloImagem.setAttribute('class', 'titulo-imagem')
+    
+    const pTitulo = document.createElement('p')
+    pTitulo.setAttribute('id', 'titulo')
+
+    divTituloImagem.appendChild(pTitulo)
+
+    const listaDadosAluno = document.createElement('ul')
+    listaDadosAluno.setAttribute('class', 'listar-dados-aluno')
+
+    const liMatriculado = document.createElement('li')
+    liMatriculado.setAttribute('id', 'li-matriculado')
+
+    const liNomeAluno = document.createElement('li')
+    liNomeAluno.setAttribute('id', 'li-nome-aluno')
+
+    const liCurso = document.createElement('li')
+    liCurso.setAttribute('id', 'li-curso')
+
+    const liTurma = document.createElement('li')
+    liTurma.setAttribute('id', 'li-turma')
+
+    const listaRelatorio = [liMatriculado, liNomeAluno, liCurso, liTurma]
+
+    for (const elemento of listaRelatorio) {
+        listaDadosAluno.appendChild(elemento)
+    }
+
+    divMatricula.appendChild(pMatricula)
+    divMatricula.appendChild(form)
+
+    divStatusMatricula.appendChild(divTituloImagem)
+    divStatusMatricula.appendChild(listaDadosAluno)
+
+    sectionAreaMatricula.appendChild(divMatricula)
+    sectionAreaMatricula.appendChild(divStatusMatricula)
+
+    container.appendChild(sectionAreaMatricula)
 }

@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/styles/style_padrao_header_e_footer.css">
-    <link rel="stylesheet" href="./assets/styles/style_matricula.css">
-    <title>Matriculas</title>
+    <link rel="stylesheet" href="./assets/styles/style_area_adm.css" id="style">
+    <script src="./script.js" defer></script>
+    <title>Área Adm</title>
 </head>
 
-<body onload="{ocultarStatusAluno(), listarCursos()} ">
+<body onload="{renderizaTurmas()}">
     <header>
         <nav>
             <a href="./index.html" class="link-logo-labescola">
@@ -21,63 +22,20 @@
                 <li><a href="./index.html">Home</a></li>
                 <li><a href="./cursos.html">Cursos</a></li>
                 <li><a href="./contato.html">Contato</a></li>
-                <li><a href="./turmas.html">Área ADM</a></li>
+                <li><a href="./area_adm.html">Área ADM</a></li>
             </ul>
+
         </nav>
     </header>
-
-    <main>
-        <section class="container">
-
-            <aside class="menu-lateral">
-                <ul>
-                    <li><a href="./turmas.html">Turmas</a></li>
-                    <li><a href="./matricula.html">Matricula</a></li>
-                    <li><a href="./financeiro_aluno.html">Financeiro Aluno</a></li>
-                </ul>
-            </aside>
-
-            <section class="area-matricula">
-                <div class="matricula">
-                    <p>Matrículas</p>
-                    <form action="#">
-                        <label for="nome">Nome</label>
-                        <input type="text" name="nome" id="nome">
-
-                        <label for="cursos">Curso</label>
-                        <select nome="curso" id="cursos-selecao" onchange="{listarTurmas()}">
-                            <option value="" disabled>Selecione</option>
-                        </select>
-
-                        <label for="turmas">Turma</label>
-                        <select nome="curso" id="turmas">
-                        </select>
-
-                        <label for="numero-de-parcelas">Número de parcelas</label>
-                        <input type="text" name="numero-de-parcelas" id="numero-de-parcelas">
-                        <button id="btn-matricular" onclick="{matricular(event)}">Matricular aluno</button>
-                    </form>
-                </div>
-                <div class="status-matricula">
-
-                    <div class="titulo-imagem">
-                        <p id="titulo"></p>
-
-                    </div>
-
-                    <ul class="listar-dados-aluno">
-                        <li id="li-matriculado"></li>
-                        <li id="li-nome-aluno"></li>
-                        <li id="li-curso"></li>
-                        <li id="li-turma"></li>
-                    </ul>
-                </div>
-            </section>
-
-
-        </section>
+    <main class="container">
+        <article class="menu-lateral">
+            <ul>
+                <li onclick="{renderizaTurmas()}">Turmas</li>
+                <li onclick="{renderizaMatricula(), ocultarStatusAluno(), listarCursos()}">Matricula</li>
+                <li onclick="{renderizaFinanceiroAluno()}">Financeiro Aluno</li>
+            </ul>
+        </article>
     </main>
-
     <footer>
         <figure>
             <a href="./index.html"></a>
@@ -132,7 +90,6 @@
             </div>
         </div>
     </footer>
-
 </body>
 
 </html>
