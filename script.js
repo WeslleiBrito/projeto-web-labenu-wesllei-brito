@@ -692,14 +692,14 @@ function renderizaTurmas() {
         document.querySelector('.compra').remove()
     }
 
-    if (document.querySelector('.cursos')) {
-        document.querySelector('.cursos').remove()
-    }
-    
     if(document.querySelector('.area-matricula')){
         document.querySelector('.area-matricula').remove()
     }
 
+    if (document.querySelector('.cursos')) {
+        document.querySelector('.cursos').remove()
+    }
+    
     const caminhoStyle = document.getElementById('style')
     caminhoStyle.setAttribute('href', './assets/styles/style_turmas.css')
 
