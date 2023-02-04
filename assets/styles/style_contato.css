@@ -13,6 +13,17 @@ main {
     background-color: #0E0E0E;
 }
 
+.logo-suspnso-whatsapp {
+    position: fixed;
+    top: 82%;
+    right: 2%;
+    display: flex;
+}
+
+.logo-suspnso-whatsapp>a>img {
+    width: 2em;
+} 
+
 .contato {
     background-color: #fbfbfb;
     height: 85%;

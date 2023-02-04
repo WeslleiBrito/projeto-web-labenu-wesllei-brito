@@ -37,20 +37,22 @@ body {
 
 .compra {
     height: 80vh;
-    width: 100%;
-    display: flex;
-    padding: 7vh 0 0 10vw;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 10vw;
 }
 
 .financeiro {
     display: flex;
     flex-direction: column;
+    padding-left: 10vw;
 }
 
 .titulo {
     font-weight: 700;
     font-size: 1.3rem;
+    margin-top: 3vh;
 }
 
 .titulo:nth-child(1) {
@@ -181,7 +183,7 @@ body {
     align-content: space-around;
     font-size: 0.9em;
     font-weight: 900;
-    color: #3b38ff;
+    color: #ee0202fd;
 }
 
 #duracao-valor {
@@ -204,4 +206,10 @@ body {
 #btn-fechar {
     width: 2vw;
     height: 2vw;
+}
+
+#resumo-valor-compra{
+    font-size: 0.8em;
+    text-align: justify;
+    font-weight: 700;
 }

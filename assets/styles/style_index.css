@@ -1,6 +1,9 @@
 body {
-    height: 100%;
-    width: 100%;
+    width: 100vw;
+    height: 170vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 8.56vh 130vh 42.24vh;
 }
 
 .logo-suspnso-whatsapp {
@@ -44,7 +47,7 @@ body {
 }
 
 .container-parte-2 {
-    height: 75vh;
+    height: 86.2vh;
     gap: 12vh;
     display: flex;
     flex-direction: column;
@@ -94,7 +97,7 @@ body {
 }
 
 .cards>article>p {
-    font-size: 0.8768rem;
+    font-size: 0.6em;
     margin-top: 1.3em;
     text-align: justify;
 }

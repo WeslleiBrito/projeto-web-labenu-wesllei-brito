@@ -21,7 +21,18 @@ function clickAtivaTela() {
     }
 
 }
+function aterarTextoBotaoAdd(){
+    console.log('Funcionando')
+    const btnAdd = document.getElementById('add-curso')
 
+    if(btnAdd){
+        if(carrinhoCursos < 1){
+            btnAdd.innerHTML = 'Click aqui para inserir o primero curso'
+        }else{
+            btnAdd.innerHTML = 'Adicionar outro curso'
+        }
+    }
+}
 function ativaDesativBtnAddCurso() {
 
     if (carrinhoCursos.length === 3) {
@@ -246,18 +257,24 @@ function somarValorArray(arrayDeNumeros) {
 
 function resumoParcelamento(event) {
     event.preventDefault()
+    
     arrayDeValores = carrinhoCursos.map(objeto => (objeto.valor))
     arrayCursos = carrinhoCursos.map(objeto => (objeto.curso))
     parcelas = document.getElementById('n-parcelas').value
-    if (parcelas) {
-        parcelas = parseInt(parcelas)
+ 
+    if(carrinhoCursos && parcelas){
+        const retorno = parcelarCurso(parcelas, arrayCursos, arrayDeValores)
+        
+        titulo = document.getElementById('p-titulo-resumo-valor')
+        titulo.innerHTML = 'Valor'
+        const mensagemTela = document.getElementById('resumo-valor-compra')
 
+        mensagemTela.innerHTML = retorno
+    }else{
+        alert('Preencha todos os campos')
     }
+    
 
-    const retorno = parcelarCurso(parcelas, arrayCursos, arrayDeValores)
-    const mensagemTela = document.getElementById('resumo-valor-compra')
-    mensagemTela.innerHTML = retorno
-    console.log(retorno)
 
 
 }
@@ -266,6 +283,7 @@ function resumoParcelamento(event) {
 function parcelarCurso(parcela, cursos, arrayDeValores) {
     let valorParcela = arredonadaParaCima(somarValorArray(arrayDeValores) / parcela)
     let valorTotal = somarValorArray(arrayDeValores)
+    const valorTotalSemDesconto = somarValorArray(arrayDeValores)
     let pluralCurso = 'O curso'
     let pluraFicou = 'ficou'
 
@@ -467,6 +485,7 @@ function confirmarMatricula(resultado) {
 
         const div = document.querySelector('.status-matricula-off')
         div.setAttribute('class', 'status-matricula')
+        aterarTextoBotaoAdd()
     } else {
         alert(resultado)
     }
@@ -565,10 +584,11 @@ function removeItemCarrinho(event) {
 
     event.target.parentNode.remove()
 
+    aterarTextoBotaoAdd()
+
     if (modificaStatusExibeTela(-1)) {
         exibeTelaAddCurso(verificaItensCarrinho())
     }
-
 
 }
 
@@ -684,6 +704,7 @@ function eventoInserirItemCarrinho(event) {
     }
 
     ativaDesativBtnAddCurso()
+    aterarTextoBotaoAdd()
 }
 
 function renderizaTurmas() {
@@ -771,7 +792,7 @@ function renderizaFinanceiroAluno() {
     botaoAddCurso.setAttribute('id', 'add-curso')
 
     botaoAddCurso.setAttribute('onclick', '{clickAtivaTela(), exibeTelaAddCurso()}')
-    botaoAddCurso.innerHTML = 'Adicionar outro curso'
+    botaoAddCurso.innerHTML = 'Click aqui para inserir o primero curso'
 
     const lableAddNParcela = document.createElement('label')
     lableAddNParcela.setAttribute('for', 'add-curso')
@@ -793,7 +814,7 @@ function renderizaFinanceiroAluno() {
     botaoVerValor.innerHTML = 'Ver valor'
 
     const pValor = document.createElement('p')
-    pValor.innerHTML = 'Valor'
+    pValor.setAttribute('id', 'p-titulo-resumo-valor')
 
     const pResumo = document.createElement('p')
     pResumo.setAttribute('id', 'resumo-valor-compra')
