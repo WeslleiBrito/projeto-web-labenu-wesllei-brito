@@ -1,0 +1,33 @@
+body {
+    height: 170vh;
+    width: 98.785vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 8.56vh 90vh 42.24vh;
+}
+
+.menu-lateral {
+    color: #FFFFFF;
+    background-color: #0E0E0E;
+    height: 80vh;
+    width: 20vw;
+}
+
+.menu-lateral>ul {
+    margin-top: 6vh;
+    margin-left: 5vw;
+}
+
+.menu-lateral>ul>li {
+    margin-bottom: 2vh;
+    font-size: 0.75em;
+}
+
+.menu-lateral>ul>li>a {
+    font-size: 0.75em;
+}
+
+.menu-lateral>ul>li:nth-child(1) {
+    text-shadow: 0 0 4px #fff;
+}
+

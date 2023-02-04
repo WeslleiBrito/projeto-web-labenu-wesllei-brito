@@ -1,0 +1,32 @@
+body {
+    height: 170vh;
+    width: 98.785vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 8.56vh 70vh 42.24vh;
+}
+
+.container {
+    display: grid;
+    background-color: #F6C34A;
+}
+
+.menu-lateral {
+    color: #FFFFFF;
+    background-color: #0E0E0E;
+    height: 70vh;
+    width: 18vw;
+}
+
+.menu-lateral>ul {
+    margin-top: 6vh;
+    margin-left: 5vw;
+}
+
+.menu-lateral>ul>li {
+    margin-bottom: 2vh;
+}
+
+.menu-lateral>ul>li>a {
+    font-size: 0.75em;
+}

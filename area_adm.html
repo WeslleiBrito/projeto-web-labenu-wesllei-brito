@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/styles/style_padrao_header_e_footer.css">
+    <link rel="stylesheet" href="./assets/styles/style_area_adm.css" id="style">
+    <script src="./script.js"></script>
+    <title>Área Adm</title>
+</head>
+
+<body onload="{renderizaTurmas()}">
+    <header>
+        <nav>
+            <a href="./index.html" class="link-logo-labescola">
+                <img src="./assets/img/logo-lab-escola.png" alt="Logo da labescola" class="logo-labescola" />
+            </a>
+
+            <ul class="menu-header">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./cursos.html">Cursos</a></li>
+                <li><a href="./contato.html">Contato</a></li>
+                <li><a href="./area_adm.html">Área ADM</a></li>
+            </ul>
+
+        </nav>
+    </header>
+    <main class="container">
+        <article class="menu-lateral">
+            <ul>
+                <li onclick="{renderizaTurmas()}">Turmas</li>
+                <li onclick="{renderizaMatricula(), ocultarStatusAluno(), listarCursos()}">Matricula</li>
+                <li onclick="{renderizaFinanceiroAluno()}">Financeiro Aluno</li>
+            </ul>
+        </article>
+
+    </main>
+    <footer>
+        <figure>
+            <a href="./index.html"></a>
+            <img src="./assets/img/logo-labescola-footer.svg" alt="logo da labescola" class="logo-labescola-footer" />
+        </figure>
+
+        <div class="container-footer">
+            <div class="endereco">
+                <h4>Endereço</h4>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.9962768688824!2d-46.6985022!3d-23.5685772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce57a7c7ace4c3%3A0x586759cab9b5c95a!2sR.%20Pais%20Leme%2C%20215%20-%20Pinheiros%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2005424-150!5e0!3m2!1spt-BR!2sbr!4v1673463808402!5m2!1spt-BR!2sbr"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="mapa"></iframe>
+                <p>R. Pais Leme, 215. CEP 05424-150 - Pinheiros</p>
+            </div>
+
+            <div class="links">
+                <h4>Links</h4>
+                <ul class="menu-links">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./cursos.html">Cursos</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Fale Conosco</a></li>
+                    <li><a href="#">Termos e condições</a></li>
+                    <li><a href="#">Política e privacidade</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="redes-sociais">
+                <h4>Redes sociais</h4>
+                <ul class="menu-redes-sociais">
+                    <li>
+                        <a href="https://twitter.com/i/flow/login" target="_blank"><img src="./assets/img/icon-twitter 1.svg"
+                                alt="icone para nosso canal no twitter" /></a>
+                    </li>
+                    <li>
+                        <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjPzZCrxfr8AhWNqZUCHYILAJYQFnoECAsQAQ&url=https%3A%2F%2Fbr.linkedin.com%2F&usg=AOvVaw2SBY7l_GSJomHDs9LB4qMx" target="_blank"><img src="./assets/img/icon-linkedin 1.svg"
+                                alt="icone para nosso canal no linkedin" /></a>
+                    </li>
+                    <li>
+                        <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjVlbW4xfr8AhXjrJUCHcD2C1UQjBB6BAgMEAE&url=https%3A%2F%2Fpt-br.facebook.com%2Flogin%2Fdevice-based%2Fregular%2Flogin%2F&usg=AOvVaw2MezuOQmbz6LjDCjlRi0-K" target="_blank"><img src="./assets/img/icon-fb 1.svg"
+                                alt="icone para nosso canal no facebook" /></a>
+                    </li>
+                    <li>
+                        <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwj29eTCxfr8AhXxhJUCHR-sBWcQFnoECA8QAQ&url=https%3A%2F%2Fwww.instagram.com%2Faccounts%2Flogin%2F&usg=AOvVaw0BRCgcMCVNSSLcNcVjPzsz" target="_blank"><img src="./assets/img/icon-ig 1.svg"
+                                alt="icone para nosso canal no instagram" /></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="area-restrita">
+                <h4>Área restrita</h4>
+                <ul class="menu-area-restrita">
+                    <li><a href="#">Área administrativa</a></li>
+                    <li><a href="#">Espaço do aluno</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

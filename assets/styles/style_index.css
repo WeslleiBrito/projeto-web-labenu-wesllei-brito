@@ -1,0 +1,103 @@
+body {
+    width: 100vw;
+    height: 170vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 8.56vh 130vh 42.24vh;
+}
+
+.logo-suspnso-whatsapp {
+    position: fixed;
+    top: 44%;
+    right: 2%;
+    display: flex;
+}
+
+.logo-suspnso-whatsapp>a>img {
+    width: 2em;
+}
+
+.container-parte-1 {
+    display: flex;
+    height: 43.8vh;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-image: url(../img/background-hero.svg);
+    background-color: #F6C34A;
+    row-gap: 8vh;
+}
+
+.container-parte-1>div:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top: 10vh;
+}
+
+.container-parte-1>div:nth-child(2) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0E0E0E;
+    color: #FBFBFB;
+    height: 2.2em;
+    width: 14em;
+    border-radius: 0.3rem;
+}
+
+.container-parte-2 {
+    height: 86.2vh;
+    gap: 12vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #FBFBFB;
+    background-color: #0E0E0E;
+}
+
+.container-parte-2>div>h5 {
+    font-size: 1em;
+}
+
+#sobre-nos>h5 {
+    margin-top: 2%;
+}
+
+#sobre-nos>p {
+    margin-top: 1%;
+    text-align: justify;
+    width: 40vw;
+    font-size: 0.9em;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 12vw);
+    grid-template-rows: 33.37vh;
+    column-gap: 0.7em;
+    justify-content: center;
+    padding-top: 1em;
+    color: #0E0E0E;
+}
+
+.cards>article {
+    background-color: #FBFBFB;
+    padding: 0.5em;
+    border-radius: 0.2em;
+}
+
+#sobre-nos>article>figure {
+    border: 0.05em solid #F6C34A;
+}
+
+.cards>article>figure>img {
+    width: 2.5em;
+}
+
+.cards>article>p {
+    font-size: 0.6em;
+    margin-top: 1.3em;
+    text-align: justify;
+}
